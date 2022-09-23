@@ -1,5 +1,6 @@
 <html>
-	<link rel="stylesheet" href="estilos.css">
+	
+	<link rel="stylesheet" href="estilosRegistro.css">
 	
 	<head>
 
@@ -7,7 +8,7 @@
 	</head>
 	<body>
 
-		<div class="margen">
+		<div class="margen1">
 			<br>
 			
 			<div class="tituloLogIn"> Iniciar sesión </div>
@@ -20,7 +21,7 @@
 				<input class="campoLogIn" type="text" name="nombre" value="Contraseña aquí"> <br> <br>	
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
 				<input class ="botonOpcion" type="submit" value="Iniciar sesión"> <br> <br>
-				<a href="paginaNoExiste.php"><input class="botonOpcion" type="button" value="Registrarse"> </a>
+				<a href="registro.php"><input class="botonOpcion" type="button" value="Registrarse"> </a>
 				
 
 
