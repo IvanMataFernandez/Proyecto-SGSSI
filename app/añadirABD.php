@@ -1,9 +1,5 @@
-
-<link rel="stylesheet" href="estilos.css">
-
-
 <?php 
-
+  session_start(); 
   // Conectar a la DB
 
   $hostname = "db";
@@ -22,26 +18,36 @@
   $b = $_POST['dni'];
   $c = $_POST['telefo'];
   $d = $_POST['naci'];
-  $e = $_POST['mail'];    
-  $f = $_POST['contraseña'];     
- $query = mysqli_query($conn, "INSERT INTO USUARIOS VALUES('$a','$b','$c','$d','$e', '$f')");
+  $e = $_POST['mail'];  
+  $f = $_POST['usuario'];
+  $g = $_POST['contraseña'];   
+    
+ $query = mysqli_query($conn, "INSERT INTO USUARIOS VALUES('$a','$b','$c','$d','$e', '$f','$g')");
 
 
     mysqli_close($conn);	
     
-    
+
+
     if ($query) {
     
-
+        $_SESSION['usuarioRepetido'] = false;
     	echo "<h1> ¡Felicidades! </h1>";
-        echo "<p> Se ha creado el usuario correctamente, pinche en el botón de abajo para volver a la página de inicio de sesión </p>";
+        echo "<p class = mensaje> Se ha creado el usuario correctamente, pinche en el botón de abajo para volver a la página de inicio de sesión </p>";
     
     	// SE HIZO
     
   
     } else {
-          echo "<h1> Ha habido un error... </h1>";
-          echo "<p class= mensaje> Ya existe un usuario con ese correo electrónico enlazado a la página web por lo que no se ha podido crear la cuenta. Pinche en el botón de abajo para volver a la página de inicio de sesión </p>";
+    
+
+            $_SESSION['usuarioRepetido'] = true;
+         echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> ";
+   
+
+   
+
+
     	// NO SE HIZO
 
     
@@ -49,6 +55,7 @@
     }
 
 ?>
+<link rel="stylesheet" href="estilo.css">
 	<br>			
 	<a href="index.php"><input class="botonOpcion" type="button" value="Volver a inicio de sesión"> </a>
 

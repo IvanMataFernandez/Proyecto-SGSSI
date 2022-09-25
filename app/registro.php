@@ -1,5 +1,18 @@
+<?php session_start();   ?>
+
+        
+     
+        
+      
+
+
+
+
+
+
+
 <html>
-	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="estilo.css">
 	<script type = "text/javascript" src="javascript.js"></script>
 	<head>
 
@@ -24,10 +37,12 @@
 				<input class="campoLogIn" type="text" name="naci" placeholder="[aaaa-mm-dd]"> <br>
 				<div class="textoLogIn"> Email: </div>
 				<input class="campoLogIn" type="text" name="mail" placeholder="[email existente]"> <br>	
+				<div class="textoLogIn"> Nombre de usuario: </div>	
+				<input class="campoLogIn" type="text" name="usuario" placeholder="[alfanumérico]"> <br>	
 				<div class="textoLogIn"> Contraseña: </div>		
 				<input class="campoLogIn" type="text" name="contraseña"  placeholder="[alfanumérico]"> <br><br>
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
-				<input class ="botonOpcion" type="button" value = "Bot 1" onclick="comprobarDatos()">  <br> <br>
+				<input class ="botonOpcion" type="button" value = "Registrarse" onclick="comprobarDatos()">  <br> <br>
 				<a href="index.php"><input class="botonOpcion" type="button" value="Volver"> </a>
 				
 
@@ -35,5 +50,22 @@
 		</div>
 
 	</body>
+	
+	<?php
+	
+		// Mirar si hubo error porque no se pudo añadir el usuario pq ya estaba en la tabla, por defecto es FALSE por lo que no causa problemas si la variable no se creó todavía
+
+	print_R($_SESSION['usuario']);
+
+	if ($_SESSION['usuarioRepetido']) {
+  	
+  		echo "<script> window.alert('Fallo al conectar a la BD: Ya existe un usuario con ese nombre, cámbialo por otro') </script>";
+  		$_SESSION['usuarioRepetido'] = false;
+  	
+        } 
+	
+	?>
+	
+	
 </html>
 

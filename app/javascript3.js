@@ -18,12 +18,10 @@ function comprobarDatos() {
 	var nac = document.formulario.naci.value;
 	var email = document.formulario.mail.value;
 			
-	
-	var contraseina = document.formulario.contraseña.value;
-	var usuario = document.formulario.usuario.value;
+
 
 		
-	comprobar(nombre, dni, telef, nac, email, usuario, contraseina); 
+	comprobar(nombre, dni, telef, nac, email); 
 	
 
 
@@ -35,7 +33,7 @@ function comprobarDatos() {
 				
 }
 
-function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
+function comprobar(nombre, dni, telef, nac, email) {
 
 
 
@@ -208,54 +206,6 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 	if (!val) {window.alert("Formato de correo no válido. Usa ejemplo@servidor.extensión"); return;}	
 	
 
-
-	// Comprobar usuario
-	
-	i = 0;
-	val = usuario.length != 0;
-	
-
-	if (!val) {window.alert("Rellena el campo de nombre de usuario"); return;}
-		
-	if (usuario.length > 50) {window.alert("Nombre de usuario demasiado largo, acórtelo."); return;}
-	
-	while (i != usuario.length && val) {
-	
-		c = usuario.charAt(i);
-		val = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ' || c == 'ñ' || c == 'Ñ' || c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú'|| c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
-		
-
-		
-		i++;
-	}
-	
-	if (!val) {window.alert("Formato de nombre de usuario inválido, usa caracteres alfanuméricos."); return;}	
-
-
-
-
-	
-	// Comprobar contraseña
-	
-	i = 0;
-	val = contraseina.length != 0;
-	
-
-	if (!val) {window.alert("Rellena el campo de contraseña"); return;}
-		
-	if (contraseina.length > 50) {window.alert("Contraseña demasiado larga, acórtela."); return;}
-	
-	while (i != contraseina.length && val) {
-	
-		c = contraseina.charAt(i);
-		val = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ' || c == 'ñ' || c == 'Ñ' || c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú'|| c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
-		
-
-		
-		i++;
-	}
-	
-	if (!val) {window.alert("Formato de contraseña inválido, usa caracteres alfanuméricos."); return;}	
 	
 	
 	document.formulario.submit();

@@ -1,0 +1,111 @@
+
+
+html{
+	/* background-image: url("fondo"); 
+	
+	/* Creado con https://cssgradient.io/ */
+	
+	background: rgb(0,212,255);
+	background: linear-gradient(90deg, rgba(0,212,255,1) 20%, rgba(48,48,215,1) 50%, rgba(0,212,255,1) 80%);
+}
+
+
+
+.margen{
+	width: 50%;
+	height: 400px;
+	border: 2px solid;
+	color: blue;
+	background-color: rgb(3,111,205);
+	position: relative;
+	left: 25%;
+	top: 30px;
+	
+
+}
+
+.tituloLogIn{
+	font-size: 40px;
+	color: white;
+	text-align: center;
+	line-height: 60px;
+	font-weight: 900;
+	
+}
+
+.botonMenu{
+	position: relative;
+	left: 5%;
+	width: 90%;
+	height: 50px;
+	background-color: rgb(3,111,205);
+	border: 0px;
+	font-size: 25px;
+	font-family: monospace;
+	color: white;
+	border: 3px solid;
+	border-color: white;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.textoLogIn{
+	font-size: 27px;
+	color: white;
+	position: relative;
+	font-weight: 300;
+	left: 5%;
+	line-height: 60px;
+
+
+}
+
+.campoLogIn{
+	position: relative;
+	left: 5%;
+	width: 45%;
+	line-height: 30px;
+}
+
+.botonReset{
+	position: relative;
+	left: 5%;
+	height: 30px;
+	
+
+}
+
+
+.titulo{
+	color: blue;
+	font-size: 90px;
+	font-family: Arial;
+	font-weight: 500;
+	letter-spacing: 3px;
+	word-spacing: 10px;
+	text-align: center;
+	
+	
+	
+}
+
+
+
+
+
+
+
+
