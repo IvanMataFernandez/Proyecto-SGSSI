@@ -26,7 +26,7 @@
 				<div class="textoLogIn"> Nombre de usuario: </div>
 				<input class="campoLogIn" type="text" name="nombre" placeholder="Nombre de usuario aquí"> <br>
 				<div class="textoLogIn"> Contraseña: </div>				
-				<input class="campoLogIn" type="text" name="contraseña" placeholder="Contraseña aquí"> <br> <br>	
+				<input class="campoLogIn" type="password" name="contraseña" placeholder="Contraseña aquí"> <br> <br>	
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
 				<input class ="botonOpcion" type= "button" value="Iniciar sesión" onclick = "guardarUsuario()" > <br> <br>
 				<a href="registro.php"><input class="botonOpcion" type="button" value="Registrarse"> </a>

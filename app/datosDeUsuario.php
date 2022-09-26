@@ -1,0 +1,127 @@
+<?php session_start();   ?>
+
+        
+     
+        
+      
+
+
+
+
+
+
+
+<html>
+	<link rel="stylesheet" href="estilo5.css">
+	<script type = "text/javascript" src="javascript.js"></script>
+	<head>
+
+		
+	</head>
+	<body>
+
+		<div class="margen">
+			<br>
+			
+			<div class="tituloLogIn"> Modificar  </div>
+			
+			
+				<table class = "opciones">
+				
+					<tr>
+				
+						<td class = "opcion">
+
+								<div class="textoLogIn"> Añadir: </div> <br> <br>
+								<a href="crearDato.php"><input class="botonOpcion" type="button" value="Añadir datos"> </a> 
+				
+						</td>
+				
+				
+						<td class = "opcion">
+								<form name = "formulario2" action = "PAGINA_POR_CREAR.php" method = "POST"> 
+								<div class="textoLogIn"> Editar: </div>
+								<input class="campoLogIn" type="text" name="id"  placeholder="[id de elemento]"> <br> 	<br>
+								<input class ="botonOpcion" type= "button" value="SIN DESARROLLAR" > <br>  </form>				
+				
+						</td>
+				
+						<td class = "opcion">
+												<form name = "formulario2" action = "PAGINA_POR_CREAR.php" method = "POST"> 
+								<div class="textoLogIn"> Borrar: </div>
+								<input class="campoLogIn" type="text" name="id"  placeholder="[id de elemento]"> <br> 	<br>
+								<input class ="botonOpcion" type= "button" value="SIN DESARROLLAR" > <br>  </form>		
+				
+						</td>
+					</tr>
+				
+				</table>
+				
+	
+							<div class="tituloLogIn"> Datos actuales  </div>
+				
+				<br>
+				
+				
+				<table class = "tabla">
+				<tr>
+					<td class = "filaP"> ID </td>
+					<td class = "filaP"> Dato 1 </td>
+					<td class = "filaP"> Dato 2 </td>
+				</tr>	
+				
+				
+				<?php
+	
+
+ 					$hostname = "db";
+  					$username = "admin";
+  					$password = "test";
+  					$db = "database";
+
+ 					 $conn = mysqli_connect($hostname,$username,$password,$db);
+  					if ($conn->connect_error) {
+   					 die("Database connection failed: " . $conn->connect_error);
+  					}
+  
+  					$a = $_SESSION['usuario'];
+ 
+  					$query = mysqli_query($conn, "SELECT clave, dato1, dato2 FROM DATOS WHERE usuario = '$a';");
+  
+
+  
+
+  
+ 					 mysqli_close($conn);
+  
+  
+
+
+   
+ 
+   
+					while ($row = mysqli_fetch_array($query)) {
+  					echo
+   					"<tr class = 'filaC'>
+   					 <td class = 'filaC'>{$row['clave']}</td>
+   					 <td class = 'filaC'>{$row['dato1']}</td>
+  					   <td class = 'filaC'>{$row['dato2']}</td>
+   					</tr>";
+   
+
+					} 
+
+
+
+	
+				?>
+			</table>
+		</div>
+
+	</body>
+	
+
+	
+	
+</html>
+
