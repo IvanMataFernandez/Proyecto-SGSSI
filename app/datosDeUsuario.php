@@ -39,18 +39,18 @@
 				
 				
 						<td class = "opcion">
-								<form name = "formulario2" action = "PAGINA_POR_CREAR.php" method = "POST"> 
+								<form name = "formulario2" action = "editarDato.php" method = "POST"> 
 								<div class="textoLogIn"> Editar: </div>
 								<input class="campoLogIn" type="text" name="id"  placeholder="[id de elemento]"> <br> 	<br>
-								<input class ="botonOpcion" type= "button" value="SIN DESARROLLAR" > <br>  </form>				
+								<input class ="botonOpcion" type= "submit" value="Editar dato" > <br>  </form>				
 				
 						</td>
 				
 						<td class = "opcion">
-												<form name = "formulario2" action = "PAGINA_POR_CREAR.php" method = "POST"> 
+								<form name = "formulario2" action = "confirmarBorradoDato.php" method = "POST"> 
 								<div class="textoLogIn"> Borrar: </div>
 								<input class="campoLogIn" type="text" name="id"  placeholder="[id de elemento]"> <br> 	<br>
-								<input class ="botonOpcion" type= "button" value="SIN DESARROLLAR" > <br>  </form>		
+								<input class ="botonOpcion" type= "submit" value="Borrar dato" > <br>  </form>		
 				
 						</td>
 					</tr>
@@ -86,7 +86,7 @@
   
   					$a = $_SESSION['usuario'];
  
-  					$query = mysqli_query($conn, "SELECT clave, dato1, dato2 FROM DATOS WHERE usuario = '$a';");
+  					$query = mysqli_query($conn, "SELECT clave, dato1, dato2 FROM DATOS WHERE usuario = '$a' ORDER BY clave;");
   
 
   
@@ -116,6 +116,8 @@
 	
 				?>
 			</table>
+			<br><br><br>
+			<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a> 
 		</div>
 
 	</body>

@@ -16,16 +16,14 @@
   }
   $a = $_SESSION['usuario'];
   
-  $rdo = $conn->query("SELECT nombre FROM USUARIOS WHERE usuario='$a';"); 
-  $_SESSION['a'] = mysqli_fetch_array($rdo)['nombre'];
-  $rdo = $conn->query("SELECT dni FROM USUARIOS WHERE usuario='$a';"); 
-  $_SESSION['b'] = mysqli_fetch_array($rdo)['dni'];
-  $rdo = $conn->query("SELECT telefono FROM USUARIOS WHERE usuario='$a';"); 
-  $_SESSION['c'] = mysqli_fetch_array($rdo)['telefono'];
-  $rdo = $conn->query("SELECT nacimiento FROM USUARIOS WHERE usuario='$a';"); 
-  $_SESSION['d'] = mysqli_fetch_array($rdo)['nacimiento'];
-  $rdo = $conn->query("SELECT email FROM USUARIOS WHERE usuario='$a';"); 
-  $_SESSION['e'] = mysqli_fetch_array($rdo)['email'];
+  $rdo = $conn->query("SELECT * FROM USUARIOS WHERE usuario='$a';"); 
+  $rdo = mysqli_fetch_array($rdo);
+
+  $_SESSION['a'] = $rdo['nombre'];
+  $_SESSION['b'] = $rdo['dni'];
+  $_SESSION['c'] = $rdo['telefono'];
+  $_SESSION['d'] = $rdo['nacimiento'];
+  $_SESSION['e'] = $rdo['email'];
 
  
 

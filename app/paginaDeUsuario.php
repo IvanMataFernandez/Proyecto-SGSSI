@@ -83,7 +83,7 @@
 
 				
 		
-				<a href="datosDeUsuario.php"><input class="botonMenu" type="button" value="SIN DESARROLLAR --> Visionar, editar o borrar datos de tu perfil"> </a>  <br> <br> 
+				<a href="datosDeUsuario.php"><input class="botonMenu" type="button" value="Crear,visionar,editar o borrar registros de tu perfil"> </a>  <br> <br> 
 				<a href="editarDatosPersonales.php"><input class="botonMenu" type="button" value="Cambiar información personal de la cuenta"> </a>  <br> <br> 
 				<a href="index.php"><input class="botonMenu" type="button" value="Desconectarse"> </a>
 				

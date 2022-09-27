@@ -46,7 +46,7 @@ function comprobar(dato1, dato2, dato3, dato4, dato5) {
 	
 	if (!val) {window.alert("Rellena el campo de dato1"); return;}	
 	
-	if (dato1.length > 50) {window.alert("Dato1 demasiado largo, acórtelo."); return;}
+	if (dato1.length > 25) {window.alert("Dato1 demasiado largo, acórtelo."); return;}
 	
 	while (i != dato1.length && val) {
 	
@@ -69,7 +69,7 @@ function comprobar(dato1, dato2, dato3, dato4, dato5) {
 	
 	if (!val) {window.alert("Rellena el campo de dato2"); return;}	
 	
-	if (dato2.length > 50) {window.alert("Dato2 demasiado largo, acórtelo."); return;}
+	if (dato2.length > 25) {window.alert("Dato2 demasiado largo, acórtelo."); return;}
 	
 	while (i != dato2.length && val) {
 	
@@ -89,7 +89,7 @@ function comprobar(dato1, dato2, dato3, dato4, dato5) {
 	
 	if (!val) {window.alert("Rellena el campo de dato3"); return;}	
 	
-	if (dato3.length > 50) {window.alert("Dato3 demasiado largo, acórtelo."); return;}
+	if (dato3.length > 25) {window.alert("Dato3 demasiado largo, acórtelo."); return;}
 	
 	while (i != dato3.length && val) {
 	
@@ -109,7 +109,7 @@ function comprobar(dato1, dato2, dato3, dato4, dato5) {
 	
 	if (!val) {window.alert("Rellena el campo de dato4"); return;}	
 	
-	if (dato4.length > 50) {window.alert("Dato4 demasiado largo, acórtelo."); return;}
+	if (dato4.length > 25) {window.alert("Dato4 demasiado largo, acórtelo."); return;}
 	
 	while (i != dato4.length && val) {
 	
@@ -134,7 +134,7 @@ function comprobar(dato1, dato2, dato3, dato4, dato5) {
 	
 	if (!val) {window.alert("Rellena el campo de dato5"); return;}	
 	
-	if (dato5.length > 50) {window.alert("Dato5 demasiado largo, acórtelo."); return;}
+	if (dato5.length > 25) {window.alert("Dato5 demasiado largo, acórtelo."); return;}
 	
 	while (i != dato5.length && val) {
 	
