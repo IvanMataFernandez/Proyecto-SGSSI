@@ -12,7 +12,7 @@
 	
 	<head>
 
-		<h1 class="titulo">  [Titulo de pagina web aqui] </h1>
+		<h1 class="titulo">  Compra de cuadros </h1>
 	</head>
 	<body>
 
@@ -74,31 +74,12 @@
     $query = mysqli_query($conn, "
   CREATE TABLE DATOS (clave INTEGER AUTO_INCREMENT, usuario varchar(50), dato1 varchar(25), dato2 varchar(25), dato3 varchar(25), dato4 varchar(25), dato5 varchar(25), primary key (clave), foreign key (usuario) references USUARIOS (usuario)  );");
   
-  // INSERT INTO DATOS(correo,dato1,dato2,dato3,dato4,dato5) VALUES('a','a','a','a','a','a')  <---- USAR ESTA LOGICA PARA INSERTAR DESPUES
+
   
   mysqli_close($conn);
   
   
- // or die (mysqli_error($conn));
 
-/*$query = mysqli_query($conn, "INSERT INTO USUARIOS VALUES('a', 'b', 'a', 'a', 'a');")
-   or die (mysqli_error($conn));
-
-
-$query = mysqli_query($conn, "SELECT * FROM USUARIOS")
-   or die (mysqli_error($conn));
-   
- 
-   
-while ($row = mysqli_fetch_array($query)) {
-  echo
-   "<tr>
-    <td>{$row['id']}</td>
-    <td>{$row['nombre']}</td>
-   </tr>";
-   
-
-} */
 
 ?>
 	</body>

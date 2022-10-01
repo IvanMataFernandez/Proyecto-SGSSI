@@ -23,7 +23,7 @@
 		<div class="margen">
 			<br>
 			
-			<div class="tituloLogIn"> Modificar  </div>
+			<div class="tituloLogIn"> Editar Registro de Cuadros </div>
 			
 			
 				<table class = "opciones">
@@ -58,7 +58,7 @@
 				</table>
 				
 	
-							<div class="tituloLogIn"> Datos actuales  </div>
+							<div class="tituloLogIn"> Cuadros actuales  </div>
 				
 				<br>
 				
@@ -66,8 +66,8 @@
 				<table class = "tabla">
 				<tr>
 					<td class = "filaP"> ID </td>
-					<td class = "filaP"> Dato 1 </td>
-					<td class = "filaP"> Dato 2 </td>
+					<td class = "filaP"> Nombre </td>
+					<td class = "filaP"> Autor </td>
 				</tr>	
 				
 				

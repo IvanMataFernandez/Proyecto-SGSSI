@@ -69,7 +69,7 @@
 				<div class="textoLogIn"> Teléfono actual:  <?php print_r($_SESSION['c']); ?> </div>
 				<input class="campoLogIn" type="text" name="telefo"  placeholder="Nuevo teléfono --> [9 dígitos]"> <br>
 				<div class="textoLogIn"> Nacimiento actual: <?php print_r($_SESSION['d']); ?> </div>
-				<input class="campoLogIn" type="text" name="naci" placeholder="Nueva fecha de nacimiento --> [aaaa-mm-dd]"> <br>
+				<input class="campoLogIn" type="text" name="naci" placeholder="Nuevo nacimiento --> [aaaa-mm-dd]"> <br>
 				<div class="textoLogIn"> Email actual: <?php print_r($_SESSION['e']); ?>: </div>
 				<input class="campoLogIn" type="text" name="mail" placeholder="Nuevo email --> [email existente]"> <br> <br>	
 				<input class ="botonOpcion" type="button" value = "Actualizar datos" onclick="comprobarDatos()">  <br> <br>

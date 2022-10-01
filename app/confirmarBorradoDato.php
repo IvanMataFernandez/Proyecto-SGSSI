@@ -86,11 +86,11 @@
 						<br> <br> <br>
 				<table class = "tabla">
 				<tr>
-					<td class = "filaP"> Dato 1 </td>
-					<td class = "filaP"> Dato 2 </td>
-					<td class = "filaP"> Dato 3 </td>
-					<td class = "filaP"> Dato 4 </td>
-					<td class = "filaP"> Dato 5 </td>
+					<td class = "filaP"> Nombre </td>
+					<td class = "filaP"> Autor </td>
+					<td class = "filaP"> Largura </td>
+					<td class = "filaP"> Anchura </td>
+					<td class = "filaP"> Precio </td>
 				</tr>	
 				
 				<tr>

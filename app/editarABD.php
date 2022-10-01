@@ -41,7 +41,7 @@
 ?>
 <link rel="stylesheet" href="estilo.css">
 	<br>			
-	<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver a inicio de sesión"> </a>
+	<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver a página de usuario"> </a>
 
 
 

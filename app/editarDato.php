@@ -79,11 +79,11 @@
 			<div class="tituloLogIn"> Dato a editar: </div>
 				<table class = "tabla">
 				<tr>
-					<td class = "filaP"> Dato 1 </td>
-					<td class = "filaP"> Dato 2 </td>
-					<td class = "filaP"> Dato 3 </td>
-					<td class = "filaP"> Dato 4 </td>
-					<td class = "filaP"> Dato 5 </td>
+					<td class = "filaP"> Nombre </td>
+					<td class = "filaP"> Autor </td>
+					<td class = "filaP"> Largura </td>
+					<td class = "filaP"> Anchura </td>
+					<td class = "filaP"> Precio </td>
 				</tr>	
 				
 				<tr>
@@ -104,15 +104,15 @@
 			
 			<form name = "formulario" action = "modificarDato.php" method = "POST"> <! -- añadir el action despues y la dirección de la página de registro de datos -->
 				
-				<div class="textoLogIn"> Dato1: </div>
+				<div class="textoLogIn"> Nombre: </div>
 				<input class="campoLogIn" type="text" name="dato1"  value="<?php print_r($_SESSION['a']); ?>"> <br>
-				<div class="textoLogIn"> Dato2: </div>			
+				<div class="textoLogIn"> Autor: </div>			
 				<input class="campoLogIn" type="text" name="dato2"  value="<?php print_r($_SESSION['b']); ?>"> <br> 
-				<div class="textoLogIn"> Dato3: </div>
+				<div class="textoLogIn"> Largura (cm): </div>
 				<input class="campoLogIn" type="text" name="dato3"  value="<?php print_r($_SESSION['c']); ?>"> <br>
-				<div class="textoLogIn"> Dato4: </div>
+				<div class="textoLogIn"> Anchura (cm): </div>
 				<input class="campoLogIn" type="text" name="dato4" value="<?php print_r($_SESSION['d']); ?>"> <br>
-				<div class="textoLogIn"> Dato5: </div>
+				<div class="textoLogIn"> Precio (€): </div>
 				<input class="campoLogIn" type="text" name="dato5" value="<?php print_r($_SESSION['e']); ?>"> <br> <br>		
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
 				<input class ="botonOpcion" type="button" value = "Modificar" onclick="comprobarDatos()">  <br> <br>

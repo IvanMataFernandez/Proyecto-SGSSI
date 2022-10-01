@@ -57,7 +57,7 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 		i++;
 	}
 	
-	if (!val) {window.alert("Nombre de usuario no válido"); return;}	
+	if (!val) {window.alert("Formato de nombre y apellidos inválidos"); return;}	
 
 
 
@@ -229,7 +229,7 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 		i++;
 	}
 	
-	if (!val) {window.alert("Formato de nombre de usuario inválido, usa caracteres alfanuméricos."); return;}	
+	if (!val) {window.alert("Nombre de usuario inválido, usa caracteres alfanuméricos."); return;}	
 
 
 
