@@ -11,9 +11,10 @@
    		 die("Database connection failed: " . $conn->connect_error);
   	}
   	
-	$a = $_SESSION['idBorrar'];
+	$a = $_SESSION['a']; // nombre del cuadro
+	$b = $_SESSION['usuario'];	
   	
- 	$conn->query("DELETE FROM DATOS WHERE clave = $a");
+ 	$conn->query("DELETE FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
  	echo "<script> window.location.replace('http://localhost:81/datosDeUsuario.php'); </script> ";
 ?>
 

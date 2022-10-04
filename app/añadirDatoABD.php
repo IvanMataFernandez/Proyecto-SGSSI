@@ -24,6 +24,12 @@
  $query = mysqli_query($conn, "INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5,usuario) VALUES('$a','$b','$c','$d','$e', '$f')");
 
 
+ if (!$query) {
+ 	$_SESSION['falloYaHayCuadro'] = true;
+ }
+ 
+
+
  mysqli_close($conn);	
     
  echo "<script> window.location.replace('http://localhost:81/datosDeUsuario.php'); </script> ";

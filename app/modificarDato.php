@@ -16,9 +16,17 @@
   	$c = $_POST['dato3'];
   	$d = $_POST['dato4'];
   	$e = $_POST['dato5'];
-  	$f = $_SESSION['idEditar'];
+  	$f = $_SESSION['a']; // Nombre previo del cuadro que se quiere cambiar
+  	$g = $_SESSION['usuario'];
 
- 	$query = mysqli_query($conn, "UPDATE DATOS SET dato1='$a', dato2='$b', dato3='$c', dato4='$d', dato5='$e' WHERE clave=$f ");
+ 	$query = mysqli_query($conn, "UPDATE DATOS SET dato1='$a', dato2='$b', dato3='$c', dato4='$d', dato5='$e' WHERE dato1 = '$f' && usuario= '$g'  ");
+ 	
+ 	
+ if (!$query) {
+ 	$_SESSION['falloYaHayCuadro'] = true;
+ }
+ 	 mysqli_close($conn);	
+ 	
  	echo "<script> window.location.replace('http://localhost:81/datosDeUsuario.php'); </script> ";
 ?>
 

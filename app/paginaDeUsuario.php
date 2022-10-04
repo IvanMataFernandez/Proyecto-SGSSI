@@ -1,5 +1,7 @@
 <?php   session_start(); 
 
+  $_SESSION['falloYaHayCuadro'] = false;
+
   if ($_SESSION['autentificacionNecesaria']) {
   
 	$hostname = "db";

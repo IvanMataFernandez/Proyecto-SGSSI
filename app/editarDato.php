@@ -1,6 +1,7 @@
 <?php session_start();   
 
-	
+
+		
  	$hostname = "db";
   	$username = "admin";
   	$password = "test";
@@ -12,31 +13,32 @@
   	}
  
   	$a = $_POST['id'];
+  	$b = $_SESSION['usuario'];
 	if ($a == "") {echo "<script> window.location.replace('http://localhost:81/datosDeUsuario.php'); </script> ";} // si no hay nada introducido, volver
 					
  	// buscar dato
  						
-  	$rdo = $conn->query("SELECT * FROM DATOS WHERE clave = $a;");
+  	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
   					
 
   					
-  	if (mysqli_fetch_array($rdo)['clave'] == $a) { // si hay dato, mostrarlo
+  	if (mysqli_fetch_array($rdo)['dato1'] == $a) { // si hay dato, mostrarlo
   	
 
   					
-	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE clave = $a;");
+	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
 		$rdo = mysqli_fetch_array($rdo);
 		
-		// Si el dato no es tuyo, se vuelve a la página anterior
-		if ($rdo['usuario'] != $_SESSION['usuario']) {echo "<script> window.location.replace('http://localhost:81/datosDeUsuario.php'); </script> ";} 
+
 		
-		// Si el dato es tuyo, se cogen los campos para mostrarlos después
+		// Si hay dato, se cogen los campos para mostrarlos después
+		
  		$_SESSION['a']= $rdo['dato1'];
   		$_SESSION['b']= $rdo['dato2'];
   		$_SESSION['c']= $rdo['dato3'];
  		$_SESSION['d']= $rdo['dato4'];
   		$_SESSION['e']= $rdo['dato5'];
-		$_SESSION['idEditar'] = $rdo['clave'];			
+	
   					
   	} else { // si no day dato, redireccionar atrás
   		echo "<script> window.location.replace('http://localhost:81/datosDeUsuario.php'); </script> ";

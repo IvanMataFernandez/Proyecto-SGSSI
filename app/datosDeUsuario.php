@@ -1,4 +1,4 @@
-<?php session_start();   ?>
+<?php session_start();  ?>
 
         
      
@@ -41,7 +41,7 @@
 						<td class = "opcion">
 								<form name = "formulario2" action = "editarDato.php" method = "POST"> 
 								<div class="textoLogIn"> Editar: </div>
-								<input class="campoLogIn" type="text" name="id"  placeholder="[id de elemento]"> <br> 	<br>
+								<input class="campoLogIn" type="text" name="id"  placeholder="[nombre de cuadro]"> <br> 	<br>
 								<input class ="botonOpcion" type= "submit" value="Editar dato" > <br>  </form>				
 				
 						</td>
@@ -49,7 +49,7 @@
 						<td class = "opcion">
 								<form name = "formulario2" action = "confirmarBorradoDato.php" method = "POST"> 
 								<div class="textoLogIn"> Borrar: </div>
-								<input class="campoLogIn" type="text" name="id"  placeholder="[id de elemento]"> <br> 	<br>
+								<input class="campoLogIn" type="text" name="id"  placeholder="[nombre de cuadro]"> <br> 	<br>
 								<input class ="botonOpcion" type= "submit" value="Borrar dato" > <br>  </form>		
 				
 						</td>
@@ -65,7 +65,7 @@
 				
 				<table class = "tabla">
 				<tr>
-					<td class = "filaP"> ID </td>
+
 					<td class = "filaP"> Nombre </td>
 					<td class = "filaP"> Autor </td>
 				</tr>	
@@ -86,7 +86,7 @@
   
   					$a = $_SESSION['usuario'];
  
-  					$query = mysqli_query($conn, "SELECT clave, dato1, dato2 FROM DATOS WHERE usuario = '$a' ORDER BY clave;");
+  					$query = mysqli_query($conn, "SELECT dato1, dato2 FROM DATOS WHERE usuario = '$a' ORDER BY dato1;");
   
 
   
@@ -103,7 +103,6 @@
 					while ($row = mysqli_fetch_array($query)) {
   					echo
    					"<tr class = 'filaC'>
-   					 <td class = 'filaC'>{$row['clave']}</td>
    					 <td class = 'filaC'>{$row['dato1']}</td>
   					   <td class = 'filaC'>{$row['dato2']}</td>
    					</tr>";
@@ -122,6 +121,14 @@
 
 	</body>
 	
+ <?php
+	if ($_SESSION['falloYaHayCuadro'] == true) {
+		print_r("<script> alert('Error, has intentado sobrescribir otro cuadro existente'); </script>");
+		$_SESSION['falloYaHayCuadro'] = false;
+	} 
+
+
+ ?>
 
 	
 	
