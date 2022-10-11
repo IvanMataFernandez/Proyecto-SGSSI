@@ -8,8 +8,11 @@ Iván Mata, Alessandra Taipe, Maialen Torre.
 
 ## Instrucciones
 
-Moverse al directorio de la página web (docker-lamp)
+Descargarse el repositorio git, por ejemplo con https sería $ git clone https://github.com/IvanMataFernandez/Proyecto-SGSSI.git . En su lugar también se puede bajar el zip
+pulsando en el botón "Code" verde y descomprimirlo después.
 
+Moverse al directorio de la página web, el cual sería este mismo repositorio git en tu pc. Renómbralo a docker-lamp, para ello ejecuta $ mv [nombre actual del repo git] docker-lamp  
+ 
 Dentro del repositorio escribir por terminal $ sudo docker build -t="web" .
 
 Después escribir $ sudo docker-compose up
