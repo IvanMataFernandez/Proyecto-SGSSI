@@ -188,7 +188,7 @@ function comprobar(nombre, dni, telef, nac, email) {
 	
 	if (!val) {window.alert("Rellena el campo de email"); return;}
 		
-	if (email.length > 32) {window.alert("Email demasiado largo, acórtelo."); return;}
+	if (email.length > 50) {window.alert("Email demasiado largo, acórtelo."); return;}
 	
 	while (i != email.length && val) {
 	
