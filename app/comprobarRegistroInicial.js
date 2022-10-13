@@ -184,7 +184,7 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 	
 	i = 0;
 	val = email.length != 0;
-	
+	window.alert("dasadssda");
 	var arroba = -1; // posición de @
 	var punto = -1; // pasición de .
 	
