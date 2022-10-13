@@ -193,7 +193,7 @@ function comprobar(nombre, dni, telef, nac, email) {
 	while (i != email.length && val) {
 	
 		c = email.charAt(i);
-		val = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == 'ñ' || c == 'Ñ' || c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú'|| c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
+		val = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') ||c == 'ñ' || c == 'Ñ' || c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú'|| c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
 		
 		if (!val) {
 			if (c == '@' && arroba == -1 && punto == -1 && i != 0) {arroba = i; val = true;}
