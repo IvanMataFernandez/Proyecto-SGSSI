@@ -19,17 +19,20 @@
   $c = $_POST['dato3'];
   $d = $_POST['dato4'];
   $e = $_POST['dato5'];  
-  $f = $_SESSION['usuario'];
+
     
- $query = mysqli_query($conn, "INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5,usuario) VALUES('$a','$b','$c','$d','$e', '$f')");
+  // Insertar en los datos del usuario el valor  
+    
+ $query = mysqli_query($conn, "INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES('$a','$b','$c','$d','$e')");
 
 
- if (!$query) {
+ if (!$query) { // Si hay fallo porque la clave ya estaba de antes en la BD, hay error
  	$_SESSION['falloYaHayCuadro'] = true;
- } else {
- 	$_SESSION['AnadidoCorrecto'] = true;
+ } else { // Si la clave no estaba de antes, se añadió correctamente
+ 	$_SESSION['AnadidoCorrecto'] = true; 
  }
  
+ // Se cambia la variable de sesión correspondiente para mostar un pop-up tras la inserción del cuadro
 
 
  mysqli_close($conn);	

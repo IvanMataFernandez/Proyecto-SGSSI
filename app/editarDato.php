@@ -18,7 +18,7 @@
 					
  	// buscar dato
  						
-  	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
+  	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a';");
   					
 
   					
@@ -26,7 +26,7 @@
   	
 
   					
-	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
+	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a';");
 		$rdo = mysqli_fetch_array($rdo);
 		
 
@@ -71,7 +71,7 @@
 
 <html>
 	<link rel="stylesheet" href="estilo7.css">
-	<script type = "text/javascript" src="javascript4.js"></script>
+	<script type = "text/javascript" src="comprobarCreacionCuadro.js"></script>
 	<head>
 
 		

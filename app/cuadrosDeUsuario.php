@@ -84,9 +84,9 @@
    					 die("Database connection failed: " . $conn->connect_error);
   					}
   
-  					$a = $_SESSION['usuario'];
+
  
-  					$query = mysqli_query($conn, "SELECT dato1, dato2 FROM DATOS WHERE usuario = '$a' ORDER BY dato1;");
+  					$query = mysqli_query($conn, "SELECT dato1, dato2 FROM DATOS ORDER BY dato1;");
   
 
   

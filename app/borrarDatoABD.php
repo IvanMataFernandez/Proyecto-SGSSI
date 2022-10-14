@@ -1,5 +1,6 @@
 <?php session_start();   
 
+	// Acceder a la BD
 	
  	$hostname = "db";
   	$username = "admin";
@@ -12,11 +13,14 @@
   	}
   	
 	$a = $_SESSION['a']; // nombre del cuadro
-	$b = $_SESSION['usuario'];	
+
   	
- 	$conn->query("DELETE FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
+  	// Buscar el cuadro a borrar y eliminarlo (se sabe que existe porque se hizo un SELECT antes)
+  	
+ 	$conn->query("DELETE FROM DATOS WHERE dato1 = '$a';");
  	$_SESSION['BorradoCorrecto'] = true;	
  	
+ 	// Redirigir a la página principal de cuadros
  	
  	echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
 ?>

@@ -17,9 +17,9 @@
   	$d = $_POST['dato4'];
   	$e = $_POST['dato5'];
   	$f = $_SESSION['a']; // Nombre previo del cuadro que se quiere cambiar
-  	$g = $_SESSION['usuario'];
 
- 	$query = mysqli_query($conn, "UPDATE DATOS SET dato1='$a', dato2='$b', dato3='$c', dato4='$d', dato5='$e' WHERE dato1 = '$f' && usuario= '$g'  ");
+
+ 	$query = mysqli_query($conn, "UPDATE DATOS SET dato1='$a', dato2='$b', dato3='$c', dato4='$d', dato5='$e' WHERE dato1 = '$f';");
  	
  	
  if (!$query) {

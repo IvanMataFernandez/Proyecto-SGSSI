@@ -62,16 +62,16 @@
 			
 			<form name = "formulario" action = "modificarUsuarioEnBD.php" method = "POST"> 
 				
-				<div class="textoLogIn"> Nombre actual: <?php print_r($_SESSION['a']); ?> </div>
-				<input class="campoLogIn" type="text" name="nombre"  placeholder="Nuevo nombre --> [solo texto]"> <br>
-				<div class="textoLogIn"> DNI actual :  <?php print_r($_SESSION['b']); ?> </div>			
-				<input class="campoLogIn" type="text" name="dni"  placeholder="Nuevo dni --> [formato 11111111-Z]"> <br> 
-				<div class="textoLogIn"> Teléfono actual:  <?php print_r($_SESSION['c']); ?> </div>
-				<input class="campoLogIn" type="text" name="telefo"  placeholder="Nuevo teléfono --> [9 dígitos]"> <br>
-				<div class="textoLogIn"> Nacimiento actual: <?php print_r($_SESSION['d']); ?> </div>
-				<input class="campoLogIn" type="text" name="naci" placeholder="Nuevo nacimiento --> [aaaa-mm-dd]"> <br>
-				<div class="textoLogIn"> Email actual: <?php print_r($_SESSION['e']); ?>: </div>
-				<input class="campoLogIn" type="text" name="mail" placeholder="Nuevo email --> [email existente]"> <br> <br>	
+				<div class="textoLogIn"> Nombre: <?php print_r($_SESSION['a']); ?> </div>
+				<input class="campoLogIn" type="text" name="nombre"  value="<?php print_r($_SESSION['a']); ?>"> <br>
+				<div class="textoLogIn"> DNI:  <?php print_r($_SESSION['b']); ?> </div>			
+				<input class="campoLogIn" type="text" name="dni"  value="<?php print_r($_SESSION['b']); ?>"> <br> 
+				<div class="textoLogIn"> Teléfono:  <?php print_r($_SESSION['c']); ?> </div>
+				<input class="campoLogIn" type="text" name="telefo"  value="<?php print_r($_SESSION['c']); ?>"> <br>
+				<div class="textoLogIn"> Nacimiento: <?php print_r($_SESSION['d']); ?> </div>
+				<input class="campoLogIn" type="text" name="naci" value="<?php print_r($_SESSION['d']); ?>"> <br>
+				<div class="textoLogIn"> Email: <?php print_r($_SESSION['e']); ?>: </div>
+				<input class="campoLogIn" type="text" name="mail" value="<?php print_r($_SESSION['e']); ?>"> <br> <br>	
 				<input class ="botonOpcion" type="button" value = "Actualizar datos" onclick="comprobarDatos()">  <br> <br>
 				<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a>
 				

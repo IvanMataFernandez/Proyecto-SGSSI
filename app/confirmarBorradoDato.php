@@ -13,19 +13,19 @@
   	}
  
   	$a = $_POST['id']; // nombre del cuadro
-  	$b = $_SESSION['usuario'];
+
   	
 	if ($a == "") {$_SESSION['falloNoHayCuadro'] = true; echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";} // si no hay nada introducido, volver
 					
  	// buscar dato
  						
-  	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
+  	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a';");
   					
 
   					
   	if (mysqli_fetch_array($rdo)['dato1'] == $a) { // si hay dato, mostrarlo
   					
-	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a' && usuario = '$b';");
+	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a';");
 		$rdo = mysqli_fetch_array($rdo);
 		
 
