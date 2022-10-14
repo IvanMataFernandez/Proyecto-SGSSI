@@ -16,6 +16,8 @@
   }
   $a = $_SESSION['usuario'];
   
+  // Coger los valores actuales del usuario para mostrarlos después
+  
   $rdo = $conn->query("SELECT * FROM USUARIOS WHERE usuario='$a';"); 
   $rdo = mysqli_fetch_array($rdo);
 
@@ -62,15 +64,15 @@
 			
 			<form name = "formulario" action = "modificarUsuarioEnBD.php" method = "POST"> 
 				
-				<div class="textoLogIn"> Nombre: <?php print_r($_SESSION['a']); ?> </div>
+				<div class="textoLogIn"> Nombre:  </div>
 				<input class="campoLogIn" type="text" name="nombre"  value="<?php print_r($_SESSION['a']); ?>"> <br>
-				<div class="textoLogIn"> DNI:  <?php print_r($_SESSION['b']); ?> </div>			
+				<div class="textoLogIn"> DNI:   </div>			
 				<input class="campoLogIn" type="text" name="dni"  value="<?php print_r($_SESSION['b']); ?>"> <br> 
-				<div class="textoLogIn"> Teléfono:  <?php print_r($_SESSION['c']); ?> </div>
+				<div class="textoLogIn"> Teléfono:   </div>
 				<input class="campoLogIn" type="text" name="telefo"  value="<?php print_r($_SESSION['c']); ?>"> <br>
-				<div class="textoLogIn"> Nacimiento: <?php print_r($_SESSION['d']); ?> </div>
+				<div class="textoLogIn"> Nacimiento:  </div>
 				<input class="campoLogIn" type="text" name="naci" value="<?php print_r($_SESSION['d']); ?>"> <br>
-				<div class="textoLogIn"> Email: <?php print_r($_SESSION['e']); ?>: </div>
+				<div class="textoLogIn"> Email:  </div>
 				<input class="campoLogIn" type="text" name="mail" value="<?php print_r($_SESSION['e']); ?>"> <br> <br>	
 				<input class ="botonOpcion" type="button" value = "Actualizar datos" onclick="comprobarDatos()">  <br> <br>
 				<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a>

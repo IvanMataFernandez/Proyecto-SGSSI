@@ -122,6 +122,8 @@
 	</body>
 	
  <?php
+ 	// Mostrar pop-ups correspondientes si se deberían activar por haber vuelto de otra página
+ 
 	if ($_SESSION['falloYaHayCuadro'] == true) {
 		print_r("<script> alert('Error, ha intentado sobrescribir otro cuadro existente, no se han hecho cambios'); </script>");
 		$_SESSION['falloYaHayCuadro'] = false;

@@ -37,9 +37,10 @@
 
 <?php
  
+ // Forzar verificación del user al pasar a la página principal del usuario, porque se viene del menú principal
  
   $_SESSION['autentificacionNecesaria'] = true;
-  $_SESSION['usuario'] = "";
+  $_SESSION['usuario'] = ""; // ningún usuario en sesión
   
   
 
@@ -72,11 +73,15 @@
   $query = mysqli_query($conn, "
   CREATE TABLE USUARIOS (nombre varchar(50), dni varchar(10), telefono varchar(9), nacimiento varchar(10), email varchar(50), usuario varchar(50), contraseña varchar(50), primary key (usuario) );");
   
-  if ($query) {
+  if ($query) { // Si es la primera vez que se ejecuta, crear la tabla de DATOS también con 5 cuadros por defecto
       $query = mysqli_query($conn, "
   CREATE TABLE DATOS (dato1 varchar(25), dato2 varchar(25), dato3 varchar(25), dato4 varchar(25), dato5 varchar(25), primary key (dato1)  );");
   
-  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Mona Lisa', 'da Vinci', '10', '10', '10');");
+  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El beso', 'Gustav Klimt', '90', '60', '20');");
+  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Mona Lisa', 'da Vinci', '60', '70', '30');");
+  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El grito', 'Edvard Munch', '50', '90', '50');");
+  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Guernica', 'Pablo Picaso', '30', '70', '40');");
+  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Las Meninas', 'Diego de Velazquez', '40', '20', '70');");
   }
   
 

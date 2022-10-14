@@ -25,7 +25,7 @@
 			
 			<div class="tituloLogIn"> Introducir registro </div>
 			
-			<form name = "formulario" action = "añadirDatoABD.php" method = "POST"> <! -- añadir el action despues y la dirección de la página de registro de datos -->
+			<form name = "formulario" action = "añadirDatoABD.php" method = "POST"> 
 				
 				<div class="textoLogIn"> Nombre: </div>
 				<input class="campoLogIn" type="text" name="dato1"  placeholder="[alfanumérico], ej: Mona Lisa"> <br>

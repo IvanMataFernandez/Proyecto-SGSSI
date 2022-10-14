@@ -14,6 +14,8 @@
     die("Database connection failed: " . $conn->connect_error);
   }
   
+  // Coger los valores del primer registro 
+  
   $a = $_POST['nombre'];
   $b = $_POST['dni'];
   $c = $_POST['telefo'];
@@ -21,6 +23,8 @@
   $e = $_POST['mail'];  
   $f = $_POST['usuario'];
   $g = $_POST['contraseña'];   
+    
+   // Crear el usuario y meterlo en la BD 
     
  $query = mysqli_query($conn, "INSERT INTO USUARIOS VALUES('$a','$b','$c','$d','$e', '$f','$g')");
 
@@ -42,13 +46,13 @@
     
 
             $_SESSION['usuarioRepetido'] = true;
-         echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> ";
+         echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior
    
 
    
 
 
-    	// NO SE HIZO
+    	// NO SE HIZO, HAY REPETIDO YA
 
     
     

@@ -42,9 +42,9 @@
   // Mirar si encaja la contraseña introducida
   
 	if (mysqli_fetch_array($rdo)['contraseña'] == $b) {
-		$_SESSION['falloDeSesion'] = false;   // Contraseña acertada
+		$_SESSION['falloDeSesion'] = false;   // Contraseña acertada, no se necesitará verificar de nuevo al user hasta que se desconecte.
 		$_SESSION['autentificacionNecesaria'] = false;
-	        $_SESSION['usuario'] = $a;
+	        $_SESSION['usuario'] = $a; // Se guarda el nombre del usuario registrado
 
 	
 	} else {
@@ -62,6 +62,8 @@
 
   
 	mysqli_close($conn);
+	
+	// Inicializaciones para la página principal de cuadros.
 	
 	$_SESSION['falloYaHayCuadro'] = false;
 	$_SESSION['BorradoCorrecto'] = false;
