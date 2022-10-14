@@ -36,7 +36,7 @@ DROP TABLE USUARIOS;
 
 CREATE TABLE USUARIOS (nombre varchar(50), dni varchar(10), telefono varchar(9), nacimiento varchar(10), email varchar(50), usuario varchar(50), contraseña varchar(50), primary key (usuario) );
 
-CREATE TABLE DATOS (usuario varchar(50), dato1 varchar(25), dato2 varchar(25), dato3 varchar(25), dato4 varchar(25), dato5 varchar(25), primary key (usuario, dato1), foreign key (usuario) references USUARIOS (usuario)  );
+CREATE TABLE DATOS (usuario varchar(50), dato1 varchar(25), dato2 varchar(25), dato3 varchar(25), dato4 varchar(25), dato5 varchar(25), primary key (dato1));
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
