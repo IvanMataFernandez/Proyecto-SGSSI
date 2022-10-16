@@ -24,7 +24,7 @@ Para parar el servidor introducir $ sudo docker-compose down
 
 El archivo .sql no es necesario ejecutarlo ya que el programa genera automáticamente
 la BD al iniciarlo por primera vez. De todas formas, es posible ejecutarlo para 
-borrar todos los datos almacenados en la página web. 
+borrar todos los datos almacenados en la página web y restablecerlo con los 5 cuadros por defecto. 
 Para ello, abrir http://localhost:8890/ mientras docker esté activo iniciando sesión 
 como "admin" y contraseña "test". Tras ello, pinchar en database (en la izquierda de la web)
 y luego en importar (sexta opción del menú de arriba). Elegir el archivo .sql del directorio
