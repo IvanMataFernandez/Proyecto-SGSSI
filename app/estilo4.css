@@ -1,0 +1,115 @@
+
+body{
+
+	
+	/* Creado con https://cssgradient.io/ */
+	
+	background: rgb(0,212,255);
+	background: linear-gradient(90deg, rgba(0,212,255,1) 20%, rgba(48,48,215,1) 50%, rgba(0,212,255,1) 80%);
+}
+
+
+.titulo{
+	color: blue;
+	font-size: 60px;
+	font-family: Arial;
+	font-weight: 500;
+	letter-spacing: 3px;
+	word-spacing: 10px;
+	text-align: center;
+	
+	
+	
+}
+
+.margen{
+	width: 30%;
+	height: 850px;
+	border: 2px solid;
+	color: blue;
+	background-color: rgb(3,111,205);
+	position: relative;
+	top: 30px;
+	left: 35%;
+	
+
+}
+.margen1{
+	width: 30%;
+	height: 500px;
+	border: 2px solid;
+	color: blue;
+	background-color: rgb(3,111,205);
+	position: relative;
+	top: 30px;
+	left: 35%;
+	
+
+}
+.tituloLogIn{
+	font-size: 40px;
+	color: white;
+	text-align: center;
+	line-height: 60px;
+	font-weight: 900;
+	
+}
+
+.textoLogIn{
+	font-size: 27px;
+	color: white;
+	position: relative;
+	font-weight: 300;
+	left: 5%;
+	line-height: 60px;
+
+
+}
+
+.campoLogIn{
+	position: relative;
+	left: 5%;
+	width: 45%;
+	line-height: 30px;
+}
+
+.botonReset{
+	position: relative;
+	left: 5%;
+	height: 30px;
+	
+
+}
+
+.botonOpcion{
+	position: relative;
+	left: 25%;
+	width: 50%;
+	height: 50px;
+	background-color: rgb(3,111,205);
+	border: 0px;
+	font-size: 25px;
+	font-family: monospace;
+	color: white;
+	border: 3px solid;
+	border-color: white;
+
+
+}
+
+
+
+
+.mensaje{
+
+	color: white;
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+}
+
+h1{
+	color: green;
+ }
+
+
