@@ -82,8 +82,8 @@
 	
 
  					$hostname = "db";
-  					$username = "admin";
-  					$password = "test";
+  					$username = "aosldffmeews";
+  					$password = "dksodlfkmci";
   					$db = "database";
 
  					 $conn = mysqli_connect($hostname,$username,$password,$db);

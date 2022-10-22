@@ -32,8 +32,9 @@
 
   	
   	// Buscar el cuadro a borrar y eliminarlo (se sabe que existe porque se hizo un SELECT antes)
-  	
- 	$conn->query("DELETE FROM DATOS WHERE dato1 = '$a';");
+        $com = $conn->prepare("DELETE FROM DATOS WHERE dato1 = ?;");    	
+        $com->bind_Param('s', $a);
+        $com->execute();
  	$_SESSION['BorradoCorrecto'] = true;	
  	
  	// Redirigir a la página principal de cuadros

@@ -13,8 +13,8 @@
   // Conectar a la DB
 
   $hostname = "db";
-  $username = "admin";
-  $password = "test";
+  $username = "aosldffmeews";
+  $password = "dksodlfkmci";
   $db = "database";
 
 
@@ -28,14 +28,20 @@
   
   // Coger los valores actuales del usuario para mostrarlos después
   
-  $rdo = $conn->query("SELECT * FROM USUARIOS WHERE usuario='$a';"); 
-  $rdo = mysqli_fetch_array($rdo);
+  
+  $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario=?;");  
+  $com->bind_Param('s', $a);
+  $com->execute(); 
+  $com->bind_result($a, $b, $c, $d, $e, $f, $g);
+  $com->fetch();	
+  
 
-  $_SESSION['a'] = $rdo['nombre'];
-  $_SESSION['b'] = $rdo['dni'];
-  $_SESSION['c'] = $rdo['telefono'];
-  $_SESSION['d'] = $rdo['nacimiento'];
-  $_SESSION['e'] = $rdo['email'];
+
+  $_SESSION['a'] = $a;
+  $_SESSION['b'] = $b;
+  $_SESSION['c'] = $c;
+  $_SESSION['d'] = $d;
+  $_SESSION['e'] = $e;
 
  
 

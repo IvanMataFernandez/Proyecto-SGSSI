@@ -3,8 +3,8 @@
   // Conectar a la DB
 
   $hostname = "db";
-  $username = "admin";
-  $password = "test";
+  $username = "aosldffmeews";
+  $password = "dksodlfkmci";
   $db = "database";
 
 
@@ -23,17 +23,25 @@
   $e = $_POST['mail'];  
   $f = $_POST['usuario'];
   $g = $_POST['contraseña'];   
+  
+  $h = random_bytes(10);
+  $g = $g.$h;
+  $g = hash('sha256', $g, false);
     
    // Crear el usuario y meterlo en la BD 
-    
- $query = mysqli_query($conn, "INSERT INTO USUARIOS VALUES('$a','$b','$c','$d','$e', '$f','$g')");
+ 
+ $com = $conn->prepare("INSERT INTO USUARIOS VALUES(?, ?, ?, ?, ?, ?, ?, ?)");   
+ $com->bind_Param('ssssssss', $a, $b, $c, $d, $e, $f, $g, $h);
+
+ $val = $com->execute();
+
 
 
     mysqli_close($conn);	
     
 
 
-    if ($query) {
+    if ($val) {
     
         $_SESSION['usuarioRepetido'] = false;
     	echo "<h1> ¡Felicidades! </h1>";

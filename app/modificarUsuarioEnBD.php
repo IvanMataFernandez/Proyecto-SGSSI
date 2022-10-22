@@ -3,8 +3,8 @@
   // Conectar a la DB
 
   $hostname = "db";
-  $username = "admin";
-  $password = "test";
+  $username = "aosldffmeews";
+  $password = "dksodlfkmci";
   $db = "database";
 
 
@@ -24,8 +24,11 @@
   $f = $_SESSION['usuario'];
 
   // Usando el usuario actual, cambiar sus valores personales con UPDATE.
+  
+  $com = $conn->prepare("UPDATE USUARIOS SET nombre=?, dni=?, telefono=?, nacimiento=?, email=? WHERE usuario=? ");   
+  $com->bind_Param('ssssss', $a, $b, $c, $d, $e, $f);
+  $com->execute();	
 
-  $query = mysqli_query($conn, "UPDATE USUARIOS SET nombre='$a', dni='$b', telefono='$c', nacimiento='$d', email='$e' WHERE usuario='$f' ");
 
 
     mysqli_close($conn);	
