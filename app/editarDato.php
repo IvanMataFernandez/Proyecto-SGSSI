@@ -3,8 +3,8 @@
 
 		
  	$hostname = "db";
-  	$username = "admin";
-  	$password = "test";
+  	$username = "aosldffmeews";
+  	$password = "dksodlfkmci";
   	$db = "database";
 
  	 $conn = mysqli_connect($hostname,$username,$password,$db);
@@ -17,30 +17,31 @@
 	if ($a == "") {$_SESSION['falloNoHayCuadro'] = true; echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";} // si no hay nada introducido, volver
 					
  	// buscar dato
- 						
-  	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a';");
-  					
+        $com = $conn->prepare("SELECT * FROM DATOS WHERE dato1 = ?;");    						
+  	$com->bind_Param('s', $a);
+        $com->execute(); 
+        $com->store_result();
+        					
 
   					
-  	if (mysqli_fetch_array($rdo)['dato1'] == $a) { // si hay dato, mostrarlo
-  	
+  	if ($com->affected_rows > 0) { // si hay dato, mostrarlo
 
-  					
-	 	$rdo = $conn->query("SELECT * FROM DATOS WHERE dato1 = '$a';");
-		$rdo = mysqli_fetch_array($rdo);
-		
+
+
+		 $com->bind_result($a, $b, $c, $d, $e);
+		 $com->fetch();			
 
 		
 		// Si hay dato, se cogen los campos para mostrarlos después
 		
- 		$_SESSION['a']= $rdo['dato1'];
-  		$_SESSION['b']= $rdo['dato2'];
-  		$_SESSION['c']= $rdo['dato3'];
- 		$_SESSION['d']= $rdo['dato4'];
-  		$_SESSION['e']= $rdo['dato5'];
+ 		$_SESSION['a']= $a;
+  		$_SESSION['b']= $b;
+  		$_SESSION['c']= $c;
+ 		$_SESSION['d']= $d;
+  		$_SESSION['e']= $e;
 	
   					
-  	} else { // si no day dato, redireccionar atrás
+ 	} else { // si no day dato, redireccionar atrás
   		$_SESSION['falloNoHayCuadro'] = true;
   		echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
   					

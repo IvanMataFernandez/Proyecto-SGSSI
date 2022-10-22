@@ -5,8 +5,8 @@
   // Conectar a la DB
 
   $hostname = "db";
-  $username = "admin";
-  $password = "test";
+  $username = "aosldffmeews";
+  $password = "dksodlfkmci";
   $db = "database";
 
 
@@ -26,9 +26,11 @@
   // Insertar en los datos del usuario el valor  
     if ($_POST['dato1'] != '') {
     
- $query = mysqli_query($conn, "INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES('$a','$b','$c','$d','$e')");
+ $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");       
+ $com->bind_Param('sssss', $a, $b, $c, $d, $e);
+ $val = $com->execute();
  
- if (!$query) { // Si hay fallo porque la clave ya estaba de antes en la BD, hay error
+ if (!$val) { // Si hay fallo porque la clave ya estaba de antes en la BD, hay error
  	$_SESSION['falloYaHayCuadro'] = true;
  } else { // Si la clave no estaba de antes, se añadió correctamente
  	$_SESSION['AnadidoCorrecto'] = true; 

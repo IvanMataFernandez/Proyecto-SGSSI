@@ -3,8 +3,8 @@
   // Conectar a la DB
 
   $hostname = "db";
-  $username = "admin";
-  $password = "test";
+  $username = "aosldffmeews";
+  $password = "dksodlfkmci";
   $db = "database";
 
 
@@ -23,17 +23,37 @@
   $e = $_POST['mail'];  
   $f = $_POST['usuario'];
   $g = $_POST['contraseña'];   
-    
-   // Crear el usuario y meterlo en la BD 
-    
- $query = mysqli_query($conn, "INSERT INTO USUARIOS VALUES('$a','$b','$c','$d','$e', '$f','$g')");
+  $h = "";
+  
+  
+  $cont = 0;
+  
+  while ($cont < 10) {
+  	$h = $h.chr(random_int(65, 90));
+  
+  	$cont++;
+  }
+  
 
+  
+
+  $g = $g.$h;
+  $g = hash('sha256', $g, false);
+
+   // Crear el usuario y meterlo en la BD 
+ 
+ $com = $conn->prepare("INSERT INTO USUARIOS VALUES(?, ?, ?, ?, ?, ?, ?, ?)");   
+ $com->bind_Param('ssssssss', $a, $b, $c, $d, $e, $f, $g, $h);
+
+ $val = $com->execute();
+
+	print_r($com);
 
     mysqli_close($conn);	
     
 
 
-    if ($query) {
+    if ($val) {
     
         $_SESSION['usuarioRepetido'] = false;
     	echo "<h1> ¡Felicidades! </h1>";
@@ -46,7 +66,7 @@
     
 	if ($_POST['nombre'] != '') {
             $_SESSION['usuarioRepetido'] = true;
-         echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior	
+   //      echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior	
 	} else {
 	
         $_SESSION['usuarioRepetido'] = false;

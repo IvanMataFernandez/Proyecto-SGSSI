@@ -5,8 +5,8 @@
   if (!$_SESSION['autentificado']) {
   
 	$hostname = "db";
-	$username = "admin";
-	$password = "test";
+	$username = "aosldffmeews";
+	$password = "dksodlfkmci";
 	$db = "database";
 
 	$conn = mysqli_connect($hostname,$username,$password,$db);
@@ -16,13 +16,13 @@
 
   
 	$a = $_POST['nombre'];
-	$b = $_POST['contraseña'];
+	$cont = $_POST['contraseña'];
 
 
   // Mirar si se ha introducido texto, si no hay texto, se redirige a la página principal de nuevo.
 
   
-	if ($a == "" || $b == "") {
+	if ($a == "" || $cont == "") {
 
                   // Contraseña fallada, redireccionar a la página principal de nuevo.
 	         mysqli_close($conn);
@@ -34,22 +34,30 @@
 
    // Buscar contraseña para el usuario escrito
 
-	$rdo = $conn->query("SELECT * FROM USUARIOS WHERE usuario='$a';");
-	
 
-
-
-  // Mirar si encaja la contraseña introducida
-  
-	if (mysqli_fetch_array($rdo)['contraseña'] == $b) {
-		$_SESSION['falloDeSesion'] = false;   // Contraseña acertada, no se necesitará verificar de nuevo al user hasta que se desconecte.
-                $_SESSION['autentificado'] = true;
-	        $_SESSION['usuario'] = $a; // Se guarda el nombre del usuario registrado
-                $_SESSION['incorrectosSeguidos'] = 0; // Restear fallos
-	
-	} else {
+        $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario=?;");    						
+	$com->bind_Param('s', $a);
+        $com->execute(); 
+        $com->store_result();
+        $cor = false;
+        
+        if ($com->affected_rows > 0) {
+                 $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
+		 $com->fetch();
+		 
+		 
+		 $cont = $cont.$h;
+		 $cont = hash('sha256', $cont, false);	
+		 
+		 $cor = $cont == $g;
+		 
+        
+        } 
+        
+        if (!$cor) {
+        
 	        $_SESSION['falloDeSesion'] = true;    // Contraseña fallada, redireccionar a la página principal de nuevo.
-                 mysqli_close($conn);
+
                  
                  if ($_SESSION['incorrectosSeguidos'] == '') {
                 	 $_SESSION['incorrectosSeguidos'] = 1;
@@ -68,8 +76,27 @@
                  
                  
 
+	        
+        } else {
+    		$_SESSION['falloDeSesion'] = false;   // Contraseña acertada, no se necesitará verificar de nuevo al user hasta que se desconecte.
+                $_SESSION['autentificado'] = true;
+	        $_SESSION['usuario'] = $a; // Se guarda el nombre del usuario registrado
+                $_SESSION['incorrectosSeguidos'] = 0; // Restear fallos    
+        
+      	// Inicializaciones para la página principal de cuadros.  
+        	
+		$_SESSION['falloYaHayCuadro'] = false;
+		$_SESSION['BorradoCorrecto'] = false;
+		$_SESSION['EditadoCorrecto'] = false;
+		$_SESSION['AnadidoCorrecto'] = false;
+		$_SESSION['falloNoHayCuadro'] = false;  
 	
-	}
+		$_SESSION['confirmoBorrado'] = false;  
+        }
+        
+       mysqli_close($conn);
+       
+
 
 
 
@@ -77,18 +104,8 @@
 
 
 
-  
-	mysqli_close($conn);
-	
-	// Inicializaciones para la página principal de cuadros.
-	
-	$_SESSION['falloYaHayCuadro'] = false;
-	$_SESSION['BorradoCorrecto'] = false;
-	$_SESSION['EditadoCorrecto'] = false;
-	$_SESSION['AnadidoCorrecto'] = false;
-	$_SESSION['falloNoHayCuadro'] = false;  
-	
-	$_SESSION['confirmoBorrado'] = false;  
+
+
 
   }
   

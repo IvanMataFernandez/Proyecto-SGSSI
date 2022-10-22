@@ -2,8 +2,8 @@
 
 	
  	$hostname = "db";
-  	$username = "admin";
-  	$password = "test";
+  	$username = "aosldffmeews";
+  	$password = "dksodlfkmci";
   	$db = "database";
 
  	 $conn = mysqli_connect($hostname,$username,$password,$db);
@@ -20,11 +20,14 @@
 
 	// Buscando el nombre previo del cuadro, actualizarlo con los datos nuevos
 
-	if ($_SESSION['dato1'] != '') {
-	$query = mysqli_query($conn, "UPDATE DATOS SET dato1='$a', dato2='$b', dato3='$c', dato4='$d', dato5='$e' WHERE dato1 = '$f';");
+	if ($_POST['dato1'] != '') {
+	$com = $conn->prepare("UPDATE DATOS SET dato1=?, dato2=?, dato3=?, dato4=?, dato5=? WHERE dato1 = ?;");   
+	$com->bind_Param('ssssss', $a, $b, $c, $d, $e, $f);
+        $val = $com->execute();	
+
  	
  	
- 	if (!$query) {
+ 	if (!$val) {
  		$_SESSION['falloYaHayCuadro'] = true; // si hay fallo por clave repetida, error
  	} else {
  		$_SESSION['EditadoCorrecto'] = true; // si no hay fallo por clave repetida, todo correcto
