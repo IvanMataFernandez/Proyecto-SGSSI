@@ -13,7 +13,7 @@
 
 <html>
 	<link rel="stylesheet" href="estilo.css">
-	<script type = "text/javascript" src="comprobarRegistroInicial.js"></script>
+	<script type = "text/javascript" src="comprobarRegistro.js"></script>
 	<head>
 
 		

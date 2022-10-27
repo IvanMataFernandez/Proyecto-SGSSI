@@ -4,9 +4,7 @@
 
   $hostname = "db";
   $username = "aosldffmeews";
-  $dp = fopen("archivoPassword.txt", "r"); // Coger la password de ese fichero, nadie tiene acceso al código de él aparte de la propia web (tiene permisos 400 con user data-www)
-  $password = fgets($dp);
-  fclose($dp);
+  $password = "dksodlfkmci";
   $db = "database";
 
 
