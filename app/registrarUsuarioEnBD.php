@@ -4,7 +4,9 @@
 
   $hostname = "db";
   $username = "aosldffmeews";
-  $password = "dksodlfkmci";
+  $dp = fopen("archivoPassword.txt", "r"); // Coger la password de ese fichero, nadie tiene acceso al código de él aparte de la propia web (tiene permisos 400 con user data-www)
+  $password = fgets($dp);
+  fclose($dp);
   $db = "database";
 
 
@@ -47,7 +49,7 @@
 
  $val = $com->execute();
 
-	print_r($com);
+
 
     mysqli_close($conn);	
     
@@ -66,7 +68,7 @@
     
 	if ($_POST['nombre'] != '') {
             $_SESSION['usuarioRepetido'] = true;
-   //      echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior	
+            echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior	
 	} else {
 	
         $_SESSION['usuarioRepetido'] = false;

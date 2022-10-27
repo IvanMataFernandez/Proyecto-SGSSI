@@ -83,7 +83,9 @@
 
  					$hostname = "db";
   					$username = "aosldffmeews";
-  					$password = "dksodlfkmci";
+  				       $dp = fopen("archivoPassword.txt", "r"); // Coger la password de ese fichero, nadie tiene acceso al código de él aparte de la propia web (tiene permisos 400 con user data-www)
+                                      $password = fgets($dp);
+                                       fclose($dp);
   					$db = "database";
 
  					 $conn = mysqli_connect($hostname,$username,$password,$db);

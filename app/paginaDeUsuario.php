@@ -6,7 +6,9 @@
   
 	$hostname = "db";
 	$username = "aosldffmeews";
-	$password = "dksodlfkmci";
+  	$dp = fopen("archivoPassword.txt", "r"); // Coger la password de ese fichero, nadie tiene acceso al código de él aparte de la propia web (tiene permisos 400 con user data-www)
+  	$password = fgets($dp);
+  	fclose($dp);
 	$db = "database";
 
 	$conn = mysqli_connect($hostname,$username,$password,$db);
@@ -26,6 +28,7 @@
 
                   // Contraseña fallada, redireccionar a la página principal de nuevo.
 	         mysqli_close($conn);
+	         error_log(date("d-m-20y, H:i:s")." --> ERROR de autentificación password o nombre de user vacios \n", 3, "logs.log");
 	         echo "<script> window.location.replace('http://localhost:81/'); </script> ";
 
 	}
@@ -62,13 +65,17 @@
                  if ($_SESSION['incorrectosSeguidos'] == '') {
                 	 $_SESSION['incorrectosSeguidos'] = 1;
                         echo "<script> window.location.replace('http://localhost:81/'); </script> ";
+                        error_log(date("d-m-20y, H:i:s")." --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
                  
                  } else {
                 	 $_SESSION['incorrectosSeguidos'] = $_SESSION['incorrectosSeguidos'] + 1;
+                	 error_log(date("d-m-20y, H:i:s")." --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
                  	if ($_SESSION['incorrectosSeguidos'] == 5) {
-              
+                 	
+                 	        error_log(date("d-m-20y, H:i:s")." --> Redirección a dirección antibotting. \n", 3, "logs.log");
                  	        echo "<script> window.location.replace('http://localhost:81/fallo5veces.php'); </script> ";
                  	} else {
+
                  		echo "<script> window.location.replace('http://localhost:81/'); </script> ";
                  	}
                  
@@ -78,6 +85,10 @@
 
 	        
         } else {
+        
+        
+
+               
     		$_SESSION['falloDeSesion'] = false;   // Contraseña acertada, no se necesitará verificar de nuevo al user hasta que se desconecte.
                 $_SESSION['autentificado'] = true;
 	        $_SESSION['usuario'] = $a; // Se guarda el nombre del usuario registrado

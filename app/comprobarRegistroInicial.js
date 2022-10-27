@@ -240,16 +240,28 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 	
 	i = 0;
 	val = contraseina.length != 0;
+	letra = false;
+	num = false;
 	
 
 	if (!val) {window.alert("Rellena el campo de contraseña"); return;}
-		
-	if (contraseina.length > 32) {window.alert("Contraseña demasiado larga, acórtela."); return;}
 	
+		// Comprobaciones para seguridad
+		
+	if (contraseina.length > 128) {window.alert("Contraseña demasiado larga, acórtela."); return;}
+        if (contraseina.length < 10) {window.alert("Escriba una contraseña de al menos 10 caracteres"); return;}
+        if (contraseina == usuario) {window.alert("No ponga su nombre de usuario como contraseña"); return;}
+        
 	while (i != contraseina.length && val) {
 	
 		c = contraseina.charAt(i);
-		val = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ' || c == 'ñ' || c == 'Ñ' || c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú'|| c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
+		
+		val = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||  c == ' ' || c == 'ñ' || c == 'Ñ' || c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú'|| c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
+		letra = val || letra;
+		
+		num = (c >= '0' && c <= '9') || num;
+		val = val || (c >= '0' && c <= '9');
+		
 		
 
 		
@@ -257,8 +269,8 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 	}
 	
 	if (!val) {window.alert("Formato de contraseña inválido, usa caracteres alfanuméricos."); return;}	
-	
-	
+	if (!num) {window.alert("Formato de contraseña inválido, usa al menos un dígito en tu contraseña."); return;}	
+	if (!letra) {window.alert("Formato de contraseña inválido, usa al menos una letra mayúscula o minúscula en tu contraseña."); return;}	
 	document.formulario.submit();
 	
 

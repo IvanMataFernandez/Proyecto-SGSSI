@@ -14,7 +14,9 @@
 
   $hostname = "db";
   $username = "aosldffmeews";
-  $password = "dksodlfkmci";
+  $dp = fopen("archivoPassword.txt", "r"); // Coger la password de ese fichero, nadie tiene acceso al código de él aparte de la propia web (tiene permisos 400 con user data-www)
+  $password = fgets($dp);
+  fclose($dp);
   $db = "database";
 
 
@@ -29,10 +31,10 @@
   // Coger los valores actuales del usuario para mostrarlos después
   
   
-  $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario=?;");  
+  $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario= ? ;");  
   $com->bind_Param('s', $a);
   $com->execute(); 
-  $com->bind_result($a, $b, $c, $d, $e, $f, $g);
+  $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
   $com->fetch();	
   
 
