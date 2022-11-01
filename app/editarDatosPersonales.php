@@ -1,4 +1,5 @@
 <?php session_start();
+include('funciones.php');
 
 	if (!$_SESSION['autentificado']) {
 	
@@ -28,7 +29,7 @@
   
   // Coger los valores actuales del usuario para mostrarlos después
   
-  	print_r($a);
+
   $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario=?;");  
   $com->bind_Param('s', $a);
   $com->execute(); 
@@ -36,13 +37,13 @@
   $com->fetch();	
 
 
-  
 
-  $_SESSION['a'] = $a;
-  $_SESSION['b'] = $b;
-  $_SESSION['c'] = $c;
-  $_SESSION['d'] = $d;
-  $_SESSION['e'] = $e;
+
+  $_SESSION['a'] = descifrar($a);
+  $_SESSION['b'] = descifrar($b);
+  $_SESSION['c'] = descifrar($c);
+  $_SESSION['d'] = descifrar($d);
+  $_SESSION['e'] = descifrar($e);
 
  
 

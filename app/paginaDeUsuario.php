@@ -1,12 +1,13 @@
 <?php   session_start(); 
 
+include('funciones.php');
 
 
   if (!$_SESSION['autentificado']) {
   
 	$hostname = "db";
 	$username = "aosldffmeews";
-  $password = "dksodlfkmci";
+        $password = "dksodlfkmci";
 	$db = "database";
 
 	$conn = mysqli_connect($hostname,$username,$password,$db);
@@ -31,29 +32,41 @@
 
 	}
 
-
+	
 
    // Buscar contraseña para el usuario escrito
+   
+        $_SESSION['nombreUsuario'] = $a;
+	$a = cifrar($a);
+	
 
 
-        $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario=?;");    						
+        $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario = ?;");    						
 	$com->bind_Param('s', $a);
         $com->execute(); 
         $com->store_result();
         $cor = false;
         
+
+
         if ($com->affected_rows > 0) {
-                 $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
+        
+        
+
+        
+                $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
 		 $com->fetch();
-		 
+
 		 
 		 $cont = $cont.$h;
 		 $cont = hash('sha256', $cont, false);	
-		 
+
 		 $cor = $cont == $g;
 		 
+
         
         } 
+
         
         if (!$cor) {
         
@@ -142,7 +155,7 @@
 		<div class="margen">
 			<br>
 			
-			<div class="tituloLogIn"> ¡Bienvenid@ <?php echo $_SESSION['usuario']?>! ¿Qué desea hacer? </div>  <br> <br>   <br> <br> 
+			<div class="tituloLogIn"> ¡Bienvenid@ <?php echo $_SESSION['nombreUsuario']?>! ¿Qué desea hacer? </div>  <br> <br>   <br> <br> 
 			
 
 				

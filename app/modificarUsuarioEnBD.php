@@ -1,5 +1,5 @@
 <?php session_start();
-
+include('funciones.php');
   // Conectar a la DB
 
   $hostname = "db";
@@ -16,11 +16,11 @@
   
   // Coger los valores del registro anterior (el de modificar datos personales)
   
-  $a = $_POST['nombre'];
-  $b = $_POST['dni'];
-  $c = $_POST['telefo'];
-  $d = $_POST['naci'];
-  $e = $_POST['mail'];  
+  $a = cifrar($_POST['nombre']);
+  $b = cifrar($_POST['dni']);
+  $c = cifrar($_POST['telefo']);
+  $d = cifrar($_POST['naci']);
+  $e = cifrar($_POST['mail']);  
   $f = $_SESSION['usuario'];
 
   // Usando el usuario actual, cambiar sus valores personales con UPDATE.

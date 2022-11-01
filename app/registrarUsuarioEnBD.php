@@ -1,4 +1,6 @@
 <?php 
+include('funciones.php');
+
   session_start(); 
   // Conectar a la DB
 
@@ -16,12 +18,12 @@
   
   // Coger los valores del primer registro 
   
-  $a = $_POST['nombre'];
-  $b = $_POST['dni'];
-  $c = $_POST['telefo'];
-  $d = $_POST['naci'];
-  $e = $_POST['mail'];  
-  $f = $_POST['usuario'];
+  $a = cifrar($_POST['nombre']);
+  $b = cifrar($_POST['dni']);
+  $c = cifrar($_POST['telefo']);
+  $d = cifrar($_POST['naci']);
+  $e = cifrar($_POST['mail']);  
+  $f = cifrar($_POST['usuario']);
   $g = $_POST['contraseña'];   
   $h = "";
   
@@ -66,7 +68,7 @@
     
 	if ($_POST['nombre'] != '') {
             $_SESSION['usuarioRepetido'] = true;
-            echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior	
+           echo "<script> window.location.replace('http://localhost:81/registro.php'); </script> "; // Redirigir de nuevo a la página anterior	
 	} else {
 	
         $_SESSION['usuarioRepetido'] = false;

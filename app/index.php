@@ -78,7 +78,7 @@
   // Esto es importante si se ejecuta el programa por primera vez en un pc 
    
   $query = mysqli_query($conn, "
-  CREATE TABLE USUARIOS (nombre varchar(50), dni varchar(10), telefono varchar(9), nacimiento varchar(10), email varchar(50), usuario varchar(50), contraseña varchar(64), seed varchar(10), primary key (usuario) );");
+  CREATE TABLE USUARIOS (nombre varchar(256), dni varchar(256), telefono varchar(256), nacimiento varchar(256), email varchar(256), usuario varchar(256), contraseña varchar(64), seed varchar(10), primary key (usuario) );");
   
   if ($query) { // Si es la primera vez que se ejecuta, crear la tabla de DATOS también con 5 cuadros por defecto
       $query = mysqli_query($conn, "
