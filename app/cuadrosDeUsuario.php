@@ -79,7 +79,7 @@
 				
 				
 				<?php
-	
+					include('funciones.php');
 
  					$hostname = "db";
   					$username = "aosldffmeews";
@@ -93,7 +93,7 @@
   
 
  
-  					$query = mysqli_query($conn, "SELECT dato1, dato2 FROM DATOS ORDER BY dato1;");
+  					$query = mysqli_query($conn, "SELECT dato1, dato2 FROM DATOS;");
   
 
   
@@ -108,10 +108,12 @@
  
    
 					while ($row = mysqli_fetch_array($query)) {
+						$a = descifrar($row['dato1']);
+					        $b = descifrar($row['dato2']);
   					echo
    					"<tr class = 'filaC'>
-   					 <td class = 'filaC'>{$row['dato1']}</td>
-  					   <td class = 'filaC'>{$row['dato2']}</td>
+   					 <td class = 'filaC'> $a </td>
+  					   <td class = 'filaC'> $b </td>
    					</tr>";
    
 

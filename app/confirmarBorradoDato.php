@@ -1,5 +1,5 @@
 <?php session_start();   
-
+include('funciones.php');
 
 
  	$hostname = "db";
@@ -22,7 +22,7 @@
 
         
         $com = $conn->prepare("SELECT * FROM DATOS WHERE dato1 = ?;");    						 					
-	$com->bind_Param('s', $a);
+	$com->bind_Param('s', cifrar($a));
         $com->execute(); 
         $com->store_result();
   					
@@ -35,11 +35,11 @@
 		// se cogen los campos para mostrarlos después
 		
 		
- 		$_SESSION['a']= $a;
-  		$_SESSION['b']= $b;
-  		$_SESSION['c']= $c;
- 		$_SESSION['d']= $d;
-  		$_SESSION['e']= $e;
+ 		$_SESSION['a']= descifrar($a);
+  		$_SESSION['b']= descifrar($b);
+  		$_SESSION['c']= descifrar($c);
+ 		$_SESSION['d']= descifrar($d);
+  		$_SESSION['e']= descifrar($e);
   		
 		$_SESSION['confirmoBorrado'] = true;
 			

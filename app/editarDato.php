@@ -1,6 +1,6 @@
 <?php session_start();   
 
-
+include('funciones.php');
 		
  	$hostname = "db";
   	$username = "aosldffmeews";
@@ -18,7 +18,7 @@
 					
  	// buscar dato
         $com = $conn->prepare("SELECT * FROM DATOS WHERE dato1 = ?;");    						
-  	$com->bind_Param('s', $a);
+  	$com->bind_Param('s', cifrar($a));
         $com->execute(); 
         $com->store_result();
         					
@@ -34,11 +34,11 @@
 		
 		// Si hay dato, se cogen los campos para mostrarlos después
 		
- 		$_SESSION['a']= $a;
-  		$_SESSION['b']= $b;
-  		$_SESSION['c']= $c;
- 		$_SESSION['d']= $d;
-  		$_SESSION['e']= $e;
+ 		$_SESSION['a']= descifrar($a);
+  		$_SESSION['b']= descifrar($b);
+  		$_SESSION['c']= descifrar($c);
+ 		$_SESSION['d']= descifrar($d);
+  		$_SESSION['e']= descifrar($e);
 	
   					
  	} else { // si no day dato, redireccionar atrás

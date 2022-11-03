@@ -1,4 +1,5 @@
-<?php   session_start(); ?>
+<?php   session_start(); 
+include('funciones.php');?>
 
 
 
@@ -82,13 +83,64 @@
   
   if ($query) { // Si es la primera vez que se ejecuta, crear la tabla de DATOS también con 5 cuadros por defecto
       $query = mysqli_query($conn, "
-  CREATE TABLE DATOS (dato1 varchar(25), dato2 varchar(25), dato3 varchar(25), dato4 varchar(25), dato5 varchar(25), primary key (dato1)  );");
+  CREATE TABLE DATOS (dato1 varchar(256), dato2 varchar(256), dato3 varchar(256), dato4 varchar(256), dato5 varchar(256), primary key (dato1)  );");
   
-  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El beso', 'Gustav Klimt', '90', '60', '20');");
-  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Mona Lisa', 'da Vinci', '60', '70', '30');");
-  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El grito', 'Edvard Munch', '50', '90', '50');");
-  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Guernica', 'Pablo Picaso', '30', '70', '40');");
-  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Las Meninas', 'Diego de Velazquez', '40', '20', '70');");
+   $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");   
+   $a = cifrar("El beso");
+   $b = cifrar("Gustav Klimt");
+   $c = cifrar("90");
+   $d = cifrar("60");
+   $e = cifrar("20");
+                    
+   $com->bind_Param('sssss', $a, $b, $c, $d, $e);
+   $val = $com->execute();
+  
+   $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");   
+   $a = cifrar("Mona Lisa");
+   $b = cifrar("da Vinci");
+   $c = cifrar("60");
+   $d = cifrar("70");
+   $e = cifrar("30");
+                    
+   $com->bind_Param('sssss', $a, $b, $c, $d, $e);
+   $val = $com->execute();
+   
+   $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");   
+   $a = cifrar("El grito");
+   $b = cifrar("Edvard Munch");
+   $c = cifrar("50");
+   $d = cifrar("90");
+   $e = cifrar("50");
+                    
+   $com->bind_Param('sssss', $a, $b, $c, $d, $e);
+   $val = $com->execute();   
+   
+   $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");   
+   $a = cifrar("Guernica");
+   $b = cifrar("Pablo Picaso");
+   $c = cifrar("30");
+   $d = cifrar("70");
+   $e = cifrar("40");
+                    
+   $com->bind_Param('sssss', $a, $b, $c, $d, $e);
+   $val = $com->execute();  
+   
+   $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");   
+   $a = cifrar("Las Meninas");
+   $b = cifrar("Diego de Velazquez");
+   $c = cifrar("40");
+   $d = cifrar("20");
+   $e = cifrar("70");
+                    
+   $com->bind_Param('sssss', $a, $b, $c, $d, $e);
+   $val = $com->execute();     
+   
+      
+//  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El beso', 'Gustav Klimt', '90', '60', '20');");
+ // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Mona Lisa', 'da Vinci', '60', '70', '30');");
+ // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El grito', 'Edvard Munch', '50', '90', '50');");
+ // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Guernica', 'Pablo Picaso', '30', '70', '40');");
+ // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Las Meninas', 'Diego de Velazquez', '40', '20', '70');");
   }
   
 

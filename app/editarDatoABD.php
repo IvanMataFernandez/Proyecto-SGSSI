@@ -1,5 +1,5 @@
 <?php session_start();   
-
+include('funciones.php');
 	
  	$hostname = "db";
   	$username = "aosldffmeews";
@@ -11,12 +11,12 @@
    		 die("Database connection failed: " . $conn->connect_error);
   	}
   	
-	$a = $_POST['dato1'];
-  	$b = $_POST['dato2'];
-  	$c = $_POST['dato3'];
-  	$d = $_POST['dato4'];
-  	$e = $_POST['dato5'];
-  	$f = $_SESSION['a']; // Nombre previo del cuadro que se quiere cambiar
+	$a = cifrar($_POST['dato1']);
+  	$b = cifrar($_POST['dato2']);
+  	$c = cifrar($_POST['dato3']);
+  	$d = cifrar($_POST['dato4']);
+  	$e = cifrar($_POST['dato5']);
+  	$f = cifrar($_SESSION['a']); // Nombre previo del cuadro que se quiere cambiar
 
 	// Buscando el nombre previo del cuadro, actualizarlo con los datos nuevos
 

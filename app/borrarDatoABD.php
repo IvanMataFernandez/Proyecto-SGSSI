@@ -1,5 +1,5 @@
 <?php session_start();   
-
+include('funciones.php');
 
 	if (!$_SESSION['confirmoBorrado']) {
 	
@@ -28,7 +28,7 @@
    		 die("Database connection failed: " . $conn->connect_error);
   	}
   	
-	$a = $_SESSION['a']; // nombre del cuadro
+	$a = cifrar($_SESSION['a']); // nombre del cuadro
 
   	
   	// Buscar el cuadro a borrar y eliminarlo (se sabe que existe porque se hizo un SELECT antes)

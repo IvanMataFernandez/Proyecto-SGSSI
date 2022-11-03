@@ -1,4 +1,5 @@
 <?php 
+include('funciones.php');
   session_start(); 
 
   
@@ -17,11 +18,11 @@
     die("Database connection failed: " . $conn->connect_error);
   }
   
-  $a = $_POST['dato1'];
-  $b = $_POST['dato2'];
-  $c = $_POST['dato3'];
-  $d = $_POST['dato4'];
-  $e = $_POST['dato5'];  
+  $a = cifrar($_POST['dato1']);
+  $b = cifrar($_POST['dato2']);
+  $c = cifrar($_POST['dato3']);
+  $d = cifrar($_POST['dato4']);
+  $e = cifrar($_POST['dato5']);  
 
     
   // Insertar en los datos del usuario el valor  
