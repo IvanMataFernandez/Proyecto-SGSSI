@@ -32,18 +32,7 @@ DROP TABLE DATOS;
 DROP TABLE USUARIOS;
 
 
--- Crear tablas
 
- CREATE TABLE USUARIOS (nombre varchar(256), dni varchar(256), telefono varchar(256), nacimiento varchar(256), email varchar(256), usuario varchar(256), contraseña varchar(64), seed varchar(10), primary key (usuario) );
-
-CREATE TABLE DATOS (dato1 varchar(25), dato2 varchar(25), dato3 varchar(25), dato4 varchar(25), dato5 varchar(25), primary key (dato1));
-
-INSERT INTO DATOS VALUES ('El beso', 'Gustav Klimt', '90', '60', '20');
-
-INSERT INTO DATOS VALUES ('Mona Lisa', 'da Vinci', '60', '70', '30');
-INSERT INTO DATOS VALUES ('El grito', 'Edvard Munch', '50', '90', '50');
-INSERT INTO DATOS VALUES ('Guernica', 'Pablo Picaso', '30', '70', '40');
-INSERT INTO DATOS VALUES ('Las Meninas', 'Diego de Velazquez', '40', '20', '70');
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
