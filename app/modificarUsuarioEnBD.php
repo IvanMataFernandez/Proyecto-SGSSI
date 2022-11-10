@@ -2,7 +2,11 @@
 include('funciones.php');
   // Conectar a la DB
 
-  $hostname = "db";
+	
+    
+if ($_POST['nombre'] != '') {
+	
+	  $hostname = "db";
   $username = "aosldffmeews";
   $password = "dksodlfkmci";
   $db = "database";
@@ -31,10 +35,7 @@ include('funciones.php');
 
 
 
-    mysqli_close($conn);	
-    
-
-	if ($_POST['nombre'] != '') {
+    mysqli_close($conn);
 
    	  echo "<h1> ¡Felicidades! </h1>";
     	  echo "<p class = mensaje> Se han editado los datos correctamente, pinche en el botón de abajo para volver a la página de principal de su perfil </p>";

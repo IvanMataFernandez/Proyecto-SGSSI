@@ -27,8 +27,34 @@ include('funciones.php');
 
                   // Contraseña fallada, redireccionar a la página principal de nuevo.
 	         mysqli_close($conn);
-	         error_log("Fecha: ".date("d-m-20y, H:i:s")."  IP: ".$_SERVER['REMOTE_ADDR']." --> ERROR de autentificación password o nombre de user vacios \n", 3, "logs.log");
+
+	        
+	         if ($_SESSION['incorrectosSeguidos'] == '') {
+                	 $_SESSION['incorrectosSeguidos'] = 1;
+                	 
+	        }   else {
+	                  $_SESSION['incorrectosSeguidos'] = $_SESSION['incorrectosSeguidos'] + 1;
+	        
+	        }
+
+
+	         error_log("Fecha: ".date("d-m-20y, H:i:s")."  IP: ".$_SERVER['REMOTE_ADDR']." --> ERROR de autentificación password o nombre de user vacios. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
+
+
+                 	if ($_SESSION['incorrectosSeguidos'] == 5) {
+                 	
+                 	        error_log("Fecha: ".date("d-m-20y, H:i:s")." | IP: ".$_SERVER['REMOTE_ADDR']." --> Redirección a dirección antibotting. \n", 3, "logs.log");
+                 	        echo "<script> window.location.replace('http://localhost:81/fallo5veces.php'); </script> ";
+                 	} else {
+
+                 		echo "<script> window.location.replace('http://localhost:81/'); </script> ";
+                 	}
+                 
+                 
+	        
 	         echo "<script> window.location.replace('http://localhost:81/'); </script> ";
+	         
+	         
 
 	}
 

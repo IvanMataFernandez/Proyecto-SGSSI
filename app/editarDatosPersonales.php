@@ -25,16 +25,16 @@ include('funciones.php');
   if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
   }
-  $a = $_SESSION['usuario'];
+  $b = $_SESSION['usuario'];
   
   // Coger los valores actuales del usuario para mostrarlos después
 
 
   $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario = ? ;");  
-  $com->bind_Param('s', $a);
+  $com->bind_Param('s', $b);
   $com->execute(); 
- // $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
- // $com->fetch();	
+  $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
+  $com->fetch();	
 
 
 
