@@ -17,20 +17,20 @@ include('funciones.php');
   	$d = cifrar($_POST['dato4']);
   	$e = cifrar($_POST['dato5']);
   	$f = cifrar($_SESSION['a']); // Nombre previo del cuadro que se quiere cambiar
-
+	$g = $_SESSION['usuario'];
 	// Buscando el nombre previo del cuadro, actualizarlo con los datos nuevos
 
 	if ($_POST['dato1'] != '') {
-	$com = $conn->prepare("UPDATE DATOS SET dato1=?, dato2=?, dato3=?, dato4=?, dato5=? WHERE dato1 = ?;");   
-	$com->bind_Param('ssssss', $a, $b, $c, $d, $e, $f);
+	$com = $conn->prepare("UPDATE DATOS SET dato1=?, dato2=?, dato3=?, dato4=?, dato5=? WHERE dato1 = ? && usuario = ? ;");   
+	$com->bind_Param('sssssss', $a, $b, $c, $d, $e, $f, $g);
         $val = $com->execute();	
 
  	
  	
  	if (!$val) {
- 		$_SESSION['falloYaHayCuadro'] = true; // si hay fallo por clave repetida, error
+ 		print_r("<script> alert('Error, ha intentado sobrescribir otro cuadro existente, no se han hecho cambios'); </script>"); // si hay fallo por clave repetida, error
  	} else {
- 		$_SESSION['EditadoCorrecto'] = true; // si no hay fallo por clave repetida, todo correcto
+		print_r("<script> alert('Cuadro editado correctamente'); </script>");
 	 }
 	
 	} else {$_SESSION['Inyeccion'] = true;}

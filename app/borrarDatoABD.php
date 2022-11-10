@@ -32,13 +32,14 @@ include('funciones.php');
 
   	
   	// Buscar el cuadro a borrar y eliminarlo (se sabe que existe porque se hizo un SELECT antes)
-        $com = $conn->prepare("DELETE FROM DATOS WHERE dato1 = ?;");    	
-        $com->bind_Param('s', $a);
+        $com = $conn->prepare("DELETE FROM DATOS WHERE dato1 = ? && usuario = ?;");    
+        $b =  $_SESSION['usuario'];  		
+        $com->bind_Param('ss', $a, $b);
         $com->execute();
- 	$_SESSION['BorradoCorrecto'] = true;	
+
  	
  	// Redirigir a la página principal de cuadros
- 	
+ 	print_r("<script> alert('Cuadro borrado correctamente'); </script>");
  	echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
  	
  	

@@ -83,7 +83,9 @@ include('funciones.php');?>
   
   if ($query) { // Si es la primera vez que se ejecuta, crear la tabla de DATOS también con 5 cuadros por defecto
       $query = mysqli_query($conn, "
-  CREATE TABLE DATOS (dato1 varchar(256), dato2 varchar(256), dato3 varchar(256), dato4 varchar(256), dato5 varchar(256), primary key (dato1)  );");
+  CREATE TABLE DATOS (dato1 varchar(256), dato2 varchar(256), dato3 varchar(256), dato4 varchar(256), dato5 varchar(256), usuario varchar(256), primary key (dato1, usuario), foreign key(usuario) references USUARIOS(usuario)  );");
+  
+   /*
   
    $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5) VALUES(?,?,?,?,?)");   
    $a = cifrar("El beso");
@@ -134,13 +136,10 @@ include('funciones.php');?>
                     
    $com->bind_Param('sssss', $a, $b, $c, $d, $e);
    $val = $com->execute();     
-   
+   */
       
-//  $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El beso', 'Gustav Klimt', '90', '60', '20');");
- // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Mona Lisa', 'da Vinci', '60', '70', '30');");
- // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('El grito', 'Edvard Munch', '50', '90', '50');");
- // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Guernica', 'Pablo Picaso', '30', '70', '40');");
- // $query = mysqli_query($conn, "INSERT INTO DATOS VALUES ('Las Meninas', 'Diego de Velazquez', '40', '20', '70');");
+
+
   }
   
 

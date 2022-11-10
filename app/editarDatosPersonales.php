@@ -28,14 +28,13 @@ include('funciones.php');
   $a = $_SESSION['usuario'];
   
   // Coger los valores actuales del usuario para mostrarlos después
-  
 
-  $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario=?;");  
+
+  $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario = ? ;");  
   $com->bind_Param('s', $a);
   $com->execute(); 
-  $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
-  $com->fetch();	
-
+ // $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
+ // $com->fetch();	
 
 
 
@@ -45,7 +44,7 @@ include('funciones.php');
   $_SESSION['d'] = descifrar($d);
   $_SESSION['e'] = descifrar($e);
 
- 
+
 
 
   mysqli_close($conn);	

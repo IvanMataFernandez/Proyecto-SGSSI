@@ -60,7 +60,7 @@ include('funciones.php');
         $_SESSION['usuarioRepetido'] = false;
     	echo "<h1> ¡Felicidades! </h1>";
         echo "<p class = mensaje> Se ha creado el usuario correctamente, pinche en el botón de abajo para volver a la página de inicio de sesión </p>";
-    
+        error_log("Fecha: ".date("d-m-20y, H:i:s")." | IP: ".$_SERVER['REMOTE_ADDR']." --> Se ha creado el user con identificador ".$_POST['usuario']." \n", 3, "logs.log");
     	// SE HIZO
     
   

@@ -14,21 +14,27 @@ include('funciones.php');
  
   	$a = $_POST['id']; // nombre del cuadro
 
+
+
   	
-	if ($a == "") {$_SESSION['falloNoHayCuadro'] = true; echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";} // si no hay nada introducido, volver
+	if ($a == "") {	
+		if ($_SESSION['autentificado']) {print_r("<script> alert('Error, no existe el cuadro indicado en su cuenta'); </script>");} 
+		echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
+	} // si no hay nada introducido, volver
 					
  	// buscar dato
  						
 
         
-        $com = $conn->prepare("SELECT * FROM DATOS WHERE dato1 = ?;");    						 					
-	$com->bind_Param('s', cifrar($a));
+        $com = $conn->prepare("SELECT * FROM DATOS WHERE dato1 = ? && usuario = ?;");  
+        $b =  $_SESSION['usuario'];  						 					
+	$com->bind_Param('ss', cifrar($a), $b);
         $com->execute(); 
         $com->store_result();
   					
   	if ($com->affected_rows > 0) { // si hay dato, mostrarlo
   					
-                $com->bind_result($a, $b, $c, $d, $e);
+                $com->bind_result($a, $b, $c, $d, $e, $f);
 		 $com->fetch();
 		
 
@@ -45,7 +51,7 @@ include('funciones.php');
 			
   					
   	} else { // si no day dato, redireccionar atrás
-  	  	$_SESSION['falloNoHayCuadro'] = true;
+  	  	print_r("<script> alert('Error, no existe el cuadro indicado en su cuenta'); </script>");
   		echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
   					
   	}

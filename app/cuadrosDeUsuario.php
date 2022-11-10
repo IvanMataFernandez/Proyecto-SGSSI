@@ -93,23 +93,27 @@
   
 
  
-  					$query = mysqli_query($conn, "SELECT dato1, dato2 FROM DATOS;");
-  
 
+                                       $com = $conn->prepare("SELECT dato1, dato2 FROM DATOS WHERE usuario = ?;");    						
+                                       $a = $_SESSION['usuario'];
+  	                               $com->bind_Param('s', $a);
+                                       $com->execute(); 
+                                       $com->store_result();
+                                       $com->bind_result($a, $b);
+		                        
   
-
-  
- 					 mysqli_close($conn);
+ 				
   
   
 
 
    
- 
+
    
-					while ($row = mysqli_fetch_array($query)) {
-						$a = descifrar($row['dato1']);
-					        $b = descifrar($row['dato2']);
+					while ($com->fetch()) {
+					     $a = descifrar($a);
+					     $b = descifrar($b);
+
   					echo
    					"<tr class = 'filaC'>
    					 <td class = 'filaC'> $a </td>
@@ -120,7 +124,7 @@
 					} 
 
 
-
+	                          mysqli_close($conn);
 	
 				?>
 			</table>
@@ -133,32 +137,11 @@
  <?php
  	// Mostrar pop-ups correspondientes si se deberían activar por haber vuelto de otra página
  
-	if ($_SESSION['falloYaHayCuadro'] == true) {
-		print_r("<script> alert('Error, ha intentado sobrescribir otro cuadro existente, no se han hecho cambios'); </script>");
-		$_SESSION['falloYaHayCuadro'] = false;
-	} 
-	
-	if ($_SESSION['falloNoHayCuadro'] == true) {
-		print_r("<script> alert('Error, no existe el cuadro indicado en su cuenta'); </script>");
-		$_SESSION['falloNoHayCuadro'] = false;
-	} 	
+
 	
 
-	if ($_SESSION['AnadidoCorrecto'] == true) {
-		print_r("<script> alert('Cuadro generado correctamente'); </script>");
-		$_SESSION['AnadidoCorrecto'] = false;
-	} 	
 	
-	if ($_SESSION['EditadoCorrecto'] == true) {
-		print_r("<script> alert('Cuadro editado correctamente'); </script>");
-		$_SESSION['EditadoCorrecto'] = false;
-	} 
-	
-	if ($_SESSION['BorradoCorrecto'] == true) {
-		print_r("<script> alert('Cuadro borrado correctamente'); </script>");
-		$_SESSION['BorradoCorrecto'] = false;
-	} 
-	
+
 	
 	if ($_SESSION['Inyeccion'] == true) {
 		print_r("<script> alert('Error, acceso no autorizado. Use los menús'); </script>");

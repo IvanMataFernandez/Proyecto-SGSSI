@@ -27,7 +27,7 @@ include('funciones.php');
 
                   // Contraseña fallada, redireccionar a la página principal de nuevo.
 	         mysqli_close($conn);
-	         error_log(date("d-m-20y, H:i:s")." --> ERROR de autentificación password o nombre de user vacios \n", 3, "logs.log");
+	         error_log("Fecha: ".date("d-m-20y, H:i:s")."  IP: ".$_SERVER['REMOTE_ADDR']." --> ERROR de autentificación password o nombre de user vacios \n", 3, "logs.log");
 	         echo "<script> window.location.replace('http://localhost:81/'); </script> ";
 
 	}
@@ -76,14 +76,14 @@ include('funciones.php');
                  if ($_SESSION['incorrectosSeguidos'] == '') {
                 	 $_SESSION['incorrectosSeguidos'] = 1;
                         echo "<script> window.location.replace('http://localhost:81/'); </script> ";
-                        error_log(date("d-m-20y, H:i:s")." --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
+                        error_log("Fecha: ".date("d-m-20y, H:i:s")." | IP: ".$_SERVER['REMOTE_ADDR']." --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
                  
                  } else {
                 	 $_SESSION['incorrectosSeguidos'] = $_SESSION['incorrectosSeguidos'] + 1;
-                	 error_log(date("d-m-20y, H:i:s")." --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
+                	 error_log("Fecha: ".date("d-m-20y, H:i:s")." | IP: ".$_SERVER['REMOTE_ADDR']." --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: ".$_SESSION['incorrectosSeguidos']."/5 \n", 3, "logs.log");
                  	if ($_SESSION['incorrectosSeguidos'] == 5) {
                  	
-                 	        error_log(date("d-m-20y, H:i:s")." --> Redirección a dirección antibotting. \n", 3, "logs.log");
+                 	        error_log("Fecha: ".date("d-m-20y, H:i:s")." | IP: ".$_SERVER['REMOTE_ADDR']." --> Redirección a dirección antibotting. \n", 3, "logs.log");
                  	        echo "<script> window.location.replace('http://localhost:81/fallo5veces.php'); </script> ";
                  	} else {
 
@@ -107,11 +107,10 @@ include('funciones.php');
         
       	// Inicializaciones para la página principal de cuadros.  
         	
-		$_SESSION['falloYaHayCuadro'] = false;
-		$_SESSION['BorradoCorrecto'] = false;
-		$_SESSION['EditadoCorrecto'] = false;
-		$_SESSION['AnadidoCorrecto'] = false;
-		$_SESSION['falloNoHayCuadro'] = false;  
+
+
+
+
 	
 		$_SESSION['confirmoBorrado'] = false;  
         }
@@ -131,7 +130,7 @@ include('funciones.php');
 
   }
   
-  
+
 
   
 

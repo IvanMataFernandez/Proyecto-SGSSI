@@ -118,3 +118,13 @@
 01-11-2022, 17:15:04 --> Redirección a dirección antibotting. 
 01-11-2022, 17:19:47 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 1/5 
 03-11-2022, 13:54:02 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 1/5 
+Fecha: 10-11-2022, 14:05:26  IP: 172.17.0.1 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 1/5 
+Fecha: 10-11-2022, 14:05:42  IP: 172.17.0.1 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 2/5 
+Fecha: 10-11-2022, 14:05:49  IP: 172.17.0.1 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 3/5 
+Fecha: 10-11-2022, 14:05:51  IP: 172.17.0.1 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 4/5 
+Fecha: 10-11-2022, 14:05:51  IP: 172.17.0.1 --> ERROR de autentificación password o nombre de user incorrectos. Intentos gastados: 5/5 
+Fecha: 10-11-2022, 14:05:51  IP: 172.17.0.1 --> Redirección a dirección antibotting. 
+Fecha: 10-11-2022, 14:10:50 | IP: 172.17.0.1 --> Se ha creado el user con identificador 12345 
+Fecha: 10-11-2022, 14:31:46 | IP: 172.17.0.1 --> Se ha creado el user con identificador 1 
+Fecha: 10-11-2022, 14:51:09 | IP: 172.17.0.1 --> Se ha creado el user con identificador 2 
+Fecha: 10-11-2022, 15:09:15  IP: 172.17.0.1 --> ERROR de autentificación password o nombre de user vacios 
