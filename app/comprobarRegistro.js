@@ -250,7 +250,7 @@ function comprobar(nombre, dni, telef, nac, email, usuario, contraseina) {
 		
 	if (contraseina.length > 128) {window.alert("Contraseña demasiado larga, acórtela."); return;}
         if (contraseina.length < 10) {window.alert("Escriba una contraseña de al menos 10 caracteres"); return;}
-        if (contraseina == usuario) {window.alert("No ponga su nombre de usuario como contraseña"); return;}
+
         
 	while (i != contraseina.length && val) {
 	

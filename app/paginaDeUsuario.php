@@ -187,6 +187,7 @@ include('funciones.php');
 		
 				<a href="cuadrosDeUsuario.php"><input class="botonMenu" type="button" value="Crear,visionar,editar o borrar registros de tu perfil"> </a>  <br> <br> 
 				<a href="editarDatosPersonales.php"><input class="botonMenu" type="button" value="Cambiar información personal de la cuenta"> </a>  <br> <br> 
+				<a href="editarContraseña.php"><input class="botonMenu" type="button" value="Cambiar contraseña"> </a>  <br> <br> 
 				<a href="index.php"><input class="botonMenu" type="button" value="Desconectarse"> </a>
 				
 
