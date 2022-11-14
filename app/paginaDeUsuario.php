@@ -125,9 +125,16 @@ include('funciones.php');
 	        
         } else {
         
-        
+          $cont = 0;
+  
+  		while ($cont < 10) {
+  			$h = $h.chr(random_int(65, 90));
+  
+  			$cont++;
+ 		 }
 
-               
+               $_SESSION['token'] = $h;
+
     		$_SESSION['falloDeSesion'] = false;   // Contraseña acertada, no se necesitará verificar de nuevo al user hasta que se desconecte.
                 $_SESSION['autentificado'] = true;
 	        $_SESSION['usuario'] = $f; // Se guarda el nombre del usuario registrado
@@ -160,7 +167,7 @@ include('funciones.php');
   
 
 
-  
+
 
 
 ?>
@@ -182,7 +189,7 @@ include('funciones.php');
 		<div class="margen">
 			<br>
 			
-			<div class="tituloLogIn"> ¡Bienvenid@ <?php echo $_SESSION['nombreUsuario']?>! ¿Qué desea hacer? </div>  <br> <br>   <br> <br> 
+			<div class="tituloLogIn">  ¿Qué desea hacer? </div>  <br> <br>   <br> <br> 
 			
 
 				

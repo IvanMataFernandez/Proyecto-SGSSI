@@ -4,7 +4,7 @@
 
 	
     
-if ($_POST['cont'] != '') {
+if ($_POST['cont'] != '' && $_SESSION['token'] == $_POST['token'])   {
 	
 	  $hostname = "db";
   $username = "aosldffmeews";
@@ -23,7 +23,7 @@ if ($_POST['cont'] != '') {
   $g = $_POST['cont'];   
   $h = "";
   
-   print_r($g);
+
     
   $cont = 0;
   
@@ -38,9 +38,7 @@ if ($_POST['cont'] != '') {
   
 
   $g = $g.$h;
-  
-     print_r($g);
-       print_r($h);
+
   $g = hash('sha256', $g, false);
   $a = $_SESSION['usuario'];
 

@@ -40,6 +40,7 @@ include('funciones.php');
 				<div class="textoLogIn"> Contraseña:  </div>
 				<input class="campoLogIn" type="text" name="cont" placeholder="[alfanumérico (incluye símbolos raros)]" > <br><br><br>
 				<input class ="botonOpcion" type="button" value = "Guardar" onclick="comprobarDatos()">  <br> <br>
+				<input type="hidden" name = "token" value= <?php print_r($_SESSION['token'])?> >
 				<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a>
 				
 

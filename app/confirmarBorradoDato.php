@@ -6,6 +6,7 @@ include('funciones.php');
   	$username = "aosldffmeews";
         $password = "dksodlfkmci";
   	$db = "database";
+  	
 
  	 $conn = mysqli_connect($hostname,$username,$password,$db);
   	if ($conn->connect_error) {
@@ -17,10 +18,10 @@ include('funciones.php');
 
 
   	
-	if ($a == "") {	
+	if ($a == "" || $_SESSION['token'] != $_POST['token']) {	
 		if ($_SESSION['autentificado']) {print_r("<script> alert('Error, no existe el cuadro indicado en su cuenta'); </script>");} 
 		echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
-	} // si no hay nada introducido, volver
+	} else { // si no hay nada introducido, volver
 					
  	// buscar dato
  						
@@ -57,7 +58,7 @@ include('funciones.php');
   	}
   					
   					
-  					
+  		}			
 
 
   

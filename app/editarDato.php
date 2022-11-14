@@ -6,7 +6,7 @@ include('funciones.php');
   	$username = "aosldffmeews";
        $password = "dksodlfkmci";
   	$db = "database";
-
+	$val = true;
  	 $conn = mysqli_connect($hostname,$username,$password,$db);
   	if ($conn->connect_error) {
    		 die("Database connection failed: " . $conn->connect_error);
@@ -14,17 +14,27 @@ include('funciones.php');
  
   	$a = $_POST['id'];
   	$b = $_SESSION['usuario'];
-  	
+
 
   	
   	
-  	
 	if ($a == "") {		
-		if ($_SESSION['autentificado']) {print_r("<script> alert('Error, no existe el cuadro indicado en su cuenta'); </script>");} 
+		if ($_SESSION['autentificado']) {
+		
+		
+			print_r("<script> alert('Error, no existe el cuadro indicado en su cuenta'); </script>");
+		} 
+		$val = false;
 	 	echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
 	 } // si no hay nada introducido, volver
+		
+		
+	  if ($_SESSION['token'] != $_POST['token']) {echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script>"; $val = false;}	
 					
  	// buscar dato
+ 	
+ 	if ($val) {
+ 	
         $com = $conn->prepare("SELECT * FROM DATOS WHERE dato1 = ? && usuario = ?;");  
         $b = $_SESSION['usuario'];  						
   	$com->bind_Param('ss', cifrar($a), $b);
@@ -55,7 +65,7 @@ include('funciones.php');
   		echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> ";
   					
   	}
-  					
+  	}				
   					
   					
 
@@ -128,6 +138,7 @@ include('funciones.php');
 				<div class="textoLogIn"> Precio (€): </div>
 				<input class="campoLogIn" type="text" name="dato5" value="<?php print_r($_SESSION['e']); ?>"> <br> <br>		
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
+				<input type="hidden" name = "token" value= <?php print_r($_SESSION['token'])?> >
 				<input class ="botonOpcion" type="button" value = "Modificar" onclick="comprobarDatos()">  <br> <br>
 				<a href="cuadrosDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a>
 			</form>

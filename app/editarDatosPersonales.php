@@ -91,6 +91,7 @@ include('funciones.php');
 				<input class="campoLogIn" type="text" name="naci" value="<?php print_r($_SESSION['d']); ?>"> <br>
 				<div class="textoLogIn"> Email:  </div>
 				<input class="campoLogIn" type="text" name="mail" value="<?php print_r($_SESSION['e']); ?>"> <br> <br>	
+				<input type="hidden" name = "token" value= <?php print_r($_SESSION['token'])?> >
 				<input class ="botonOpcion" type="button" value = "Actualizar datos" onclick="comprobarDatos()">  <br> <br>
 				<a href="paginaDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a>
 				

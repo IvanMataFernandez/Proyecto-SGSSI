@@ -45,6 +45,7 @@
 				<div class="textoLogIn"> Precio (€): </div>
 				<input class="campoLogIn" type="text" name="dato5" placeholder="[numérico, sin incluir €], ej: 30"> <br> <br>		
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
+				<input type="hidden" name = "token" value= <?php print_r($_SESSION['token'])?> >
 				<input class ="botonOpcion" type="button" value = "Añadir" onclick="comprobarDatos()">  <br> <br>
 				<a href="cuadrosDeUsuario.php"><input class="botonOpcion" type="button" value="Volver"> </a>
 				

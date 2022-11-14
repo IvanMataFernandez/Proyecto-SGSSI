@@ -49,7 +49,9 @@
 								<form name = "formulario2" action = "editarDato.php" method = "POST"> 
 								<div class="textoLogIn"> Editar: </div>
 								<input class="campoLogIn" type="text" name="id"  placeholder="[nombre de cuadro]"> <br> 	<br>
-								<input class ="botonOpcion" type= "submit" value="Editar dato" > <br>  </form>				
+								<input type="hidden" name = "token" value= <?php print_r($_SESSION['token'])?> >
+								<input class ="botonOpcion" type= "submit" value="Editar dato" > <br> 
+								 </form>				
 				
 						</td>
 				
@@ -57,6 +59,7 @@
 								<form name = "formulario2" action = "confirmarBorradoDato.php" method = "POST"> 
 								<div class="textoLogIn"> Borrar: </div>
 								<input class="campoLogIn" type="text" name="id"  placeholder="[nombre de cuadro]"> <br> 	<br>
+								<input type="hidden" name = "token" value= <?php print_r($_SESSION['token'])?> >
 								<input class ="botonOpcion" type= "submit" value="Borrar dato" > <br>  </form>		
 				
 						</td>

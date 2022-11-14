@@ -6,6 +6,7 @@ include('funciones.php');
         $password = "dksodlfkmci";
   	$db = "database";
 
+	
  	 $conn = mysqli_connect($hostname,$username,$password,$db);
   	if ($conn->connect_error) {
    		 die("Database connection failed: " . $conn->connect_error);
@@ -20,7 +21,7 @@ include('funciones.php');
 	$g = $_SESSION['usuario'];
 	// Buscando el nombre previo del cuadro, actualizarlo con los datos nuevos
 
-	if ($_POST['dato1'] != '') {
+	if ($_POST['dato1'] != '' && $_SESSION['token'] == $_POST['token']) {
 	$com = $conn->prepare("UPDATE DATOS SET dato1=?, dato2=?, dato3=?, dato4=?, dato5=? WHERE dato1 = ? && usuario = ? ;");   
 	$com->bind_Param('sssssss', $a, $b, $c, $d, $e, $f, $g);
         $val = $com->execute();	

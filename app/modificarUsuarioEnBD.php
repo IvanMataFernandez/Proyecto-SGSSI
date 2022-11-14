@@ -4,7 +4,7 @@ include('funciones.php');
 
 	
     
-if ($_POST['nombre'] != '') {
+if ($_POST['nombre'] != '' && $_SESSION['token'] == $_POST['token']) {
 	
 	  $hostname = "db";
   $username = "aosldffmeews";

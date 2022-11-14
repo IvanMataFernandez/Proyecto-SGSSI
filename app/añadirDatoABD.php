@@ -27,7 +27,7 @@ include('funciones.php');
 
     
   // Insertar en los datos del usuario el valor  
-    if ($_POST['dato1'] != '') {
+    if ($_POST['dato1'] != '' && $_SESSION['token'] == $_POST['token']) {
     
  $com = $conn->prepare("INSERT INTO DATOS(dato1,dato2,dato3,dato4,dato5,usuario) VALUES(?,?,?,?,?,?)");       
  $com->bind_Param('ssssss', $a, $b, $c, $d, $e, $f);
