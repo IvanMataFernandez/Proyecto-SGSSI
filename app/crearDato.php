@@ -1,4 +1,11 @@
+<?php session_start();
 
+	if (!$_SESSION['autentificado']) {
+	
+ 	echo "<script> window.location.replace('http://localhost:81'); </script> "; 
+	}
+	
+	?>
 
         
      

@@ -1,9 +1,9 @@
 <?php session_start();   
-
+include('funciones.php');
 	
  	$hostname = "db";
-  	$username = "admin";
-  	$password = "test";
+  	$username = "aosldffmeews";
+        $password = "dksodlfkmci";
   	$db = "database";
 
  	 $conn = mysqli_connect($hostname,$username,$password,$db);
@@ -11,23 +11,34 @@
    		 die("Database connection failed: " . $conn->connect_error);
   	}
   	
-	$a = $_POST['dato1'];
-  	$b = $_POST['dato2'];
-  	$c = $_POST['dato3'];
-  	$d = $_POST['dato4'];
-  	$e = $_POST['dato5'];
-  	$f = $_SESSION['a']; // Nombre previo del cuadro que se quiere cambiar
-
+	$a = cifrar($_POST['dato1']);
+  	$b = cifrar($_POST['dato2']);
+  	$c = cifrar($_POST['dato3']);
+  	$d = cifrar($_POST['dato4']);
+  	$e = cifrar($_POST['dato5']);
+  	$f = cifrar($_SESSION['a']); // Nombre previo del cuadro que se quiere cambiar
+	$g = $_SESSION['usuario'];
 	// Buscando el nombre previo del cuadro, actualizarlo con los datos nuevos
 
- 	$query = mysqli_query($conn, "UPDATE DATOS SET dato1='$a', dato2='$b', dato3='$c', dato4='$d', dato5='$e' WHERE dato1 = '$f';");
+	if ($_POST['dato1'] != '') {
+	$com = $conn->prepare("UPDATE DATOS SET dato1=?, dato2=?, dato3=?, dato4=?, dato5=? WHERE dato1 = ? && usuario = ? ;");   
+	$com->bind_Param('sssssss', $a, $b, $c, $d, $e, $f, $g);
+        $val = $com->execute();	
+
  	
  	
- if (!$query) {
- 	$_SESSION['falloYaHayCuadro'] = true; // si hay fallo por clave repetida, error
- } else {
- 	$_SESSION['EditadoCorrecto'] = true; // si no hay fallo por clave repetida, todo correcto
- }
+ 	if (!$val) {
+ 		print_r("<script> alert('Error, ha intentado sobrescribir otro cuadro existente, no se han hecho cambios'); </script>"); // si hay fallo por clave repetida, error
+ 	} else {
+		print_r("<script> alert('Cuadro editado correctamente'); </script>");
+	 }
+	
+	} else {$_SESSION['Inyeccion'] = true;}
+
+
+
+ 
+ 		
  	 mysqli_close($conn);	
  	
  	echo "<script> window.location.replace('http://localhost:81/cuadrosDeUsuario.php'); </script> "; // redirigir de vuelta

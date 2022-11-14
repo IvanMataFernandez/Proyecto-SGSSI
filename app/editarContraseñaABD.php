@@ -1,10 +1,10 @@
 <?php session_start();
-include('funciones.php');
+
   // Conectar a la DB
 
 	
     
-if ($_POST['nombre'] != '') {
+if ($_POST['cont'] != '') {
 	
 	  $hostname = "db";
   $username = "aosldffmeews";
@@ -20,17 +20,34 @@ if ($_POST['nombre'] != '') {
   
   // Coger los valores del registro anterior (el de modificar datos personales)
   
-  $a = cifrar($_POST['nombre']);
-  $b = cifrar($_POST['dni']);
-  $c = cifrar($_POST['telefo']);
-  $d = cifrar($_POST['naci']);
-  $e = cifrar($_POST['mail']);  
-  $f = $_SESSION['usuario'];
+  $g = $_POST['cont'];   
+  $h = "";
+  
+   print_r($g);
+    
+  $cont = 0;
+  
+  while ($cont < 10) {
+  	$h = $h.chr(random_int(65, 90));
+  
+  	$cont++;
+  }
+  
+
+
+  
+
+  $g = $g.$h;
+  
+     print_r($g);
+       print_r($h);
+  $g = hash('sha256', $g, false);
+  $a = $_SESSION['usuario'];
 
   // Usando el usuario actual, cambiar sus valores personales con UPDATE.
   
-  $com = $conn->prepare("UPDATE USUARIOS SET nombre=?, dni=?, telefono=?, nacimiento=?, email=? WHERE usuario=? ");   
-  $com->bind_Param('ssssss', $a, $b, $c, $d, $e, $f);
+  $com = $conn->prepare("UPDATE USUARIOS SET contraseña=?, seed=? WHERE usuario=? ");   
+  $com->bind_Param('sss', $g, $h, $a);
   $com->execute();	
 
 
@@ -38,7 +55,7 @@ if ($_POST['nombre'] != '') {
     mysqli_close($conn);
 
    	  echo "<h1> ¡Felicidades! </h1>";
-    	  echo "<p class = mensaje> Se han editado los datos correctamente, pinche en el botón de abajo para volver a la página de principal de su perfil </p>";
+    	  echo "<p class = mensaje> Se ha cambiado la contraseña, pinche en el botón de abajo para volver a la página de principal de su perfil </p>";
     	  echo " <link rel='stylesheet' href='estilo.css'>
 	<br>			
 	<a href='paginaDeUsuario.php'><input class='botonOpcion' type='button' value='Volver a página de usuario'> </a> ";	

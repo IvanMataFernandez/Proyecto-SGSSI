@@ -13,7 +13,7 @@
 
 <html>
 	<link rel="stylesheet" href="estilo.css">
-	<script type = "text/javascript" src="comprobarRegistroInicial.js"></script>
+	<script type = "text/javascript" src="comprobarRegistro.js"></script>
 	<head>
 
 		
@@ -40,7 +40,7 @@
 				<div class="textoLogIn"> Nombre de usuario: </div>	
 				<input class="campoLogIn" type="text" name="usuario" placeholder="[alfanumérico], ej: Usuario123"> <br>	
 				<div class="textoLogIn"> Contraseña: </div>		
-				<input class="campoLogIn" type="text" name="contraseña"  placeholder="[alfanumérico]"> <br><br>
+				<input class="campoLogIn" type="text" name="contraseña"  placeholder="[alfanumérico (incluye símbolos raros)]"> <br><br>
 				<input class ="botonReset" type="reset" value="Restablecer valores"> <br> <br>
 				<input class ="botonOpcion" type="button" value = "Registrarse" onclick="comprobarDatos()">  <br> <br>
 				<a href="index.php"><input class="botonOpcion" type="button" value="Volver"> </a>

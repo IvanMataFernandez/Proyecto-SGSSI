@@ -1,10 +1,21 @@
 <?php session_start();
+include('funciones.php');
+
+	if (!$_SESSION['autentificado']) {
+	
+ 	echo "<script> window.location.replace('http://localhost:81'); </script> "; 
+	}
+	
+	if ($_SESSION['confirmoBorrado'] == true) {
+		$_SESSION['confirmoBorrado'] = false;  
+	}
+
 
   // Conectar a la DB
 
   $hostname = "db";
-  $username = "admin";
-  $password = "test";
+  $username = "aosldffmeews";
+  $password = "dksodlfkmci";
   $db = "database";
 
 
@@ -14,20 +25,26 @@
   if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
   }
-  $a = $_SESSION['usuario'];
+  $b = $_SESSION['usuario'];
   
   // Coger los valores actuales del usuario para mostrarlos después
-  
-  $rdo = $conn->query("SELECT * FROM USUARIOS WHERE usuario='$a';"); 
-  $rdo = mysqli_fetch_array($rdo);
 
-  $_SESSION['a'] = $rdo['nombre'];
-  $_SESSION['b'] = $rdo['dni'];
-  $_SESSION['c'] = $rdo['telefono'];
-  $_SESSION['d'] = $rdo['nacimiento'];
-  $_SESSION['e'] = $rdo['email'];
 
- 
+  $com = $conn->prepare("SELECT * FROM USUARIOS WHERE usuario = ? ;");  
+  $com->bind_Param('s', $b);
+  $com->execute(); 
+  $com->bind_result($a, $b, $c, $d, $e, $f, $g, $h);
+  $com->fetch();	
+
+
+
+  $_SESSION['a'] = descifrar($a);
+  $_SESSION['b'] = descifrar($b);
+  $_SESSION['c'] = descifrar($c);
+  $_SESSION['d'] = descifrar($d);
+  $_SESSION['e'] = descifrar($e);
+
+
 
 
   mysqli_close($conn);	
