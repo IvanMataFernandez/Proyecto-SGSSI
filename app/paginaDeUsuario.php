@@ -26,7 +26,7 @@ include('funciones.php');
 	if ($a == "" || $cont == "") {
 
                   // Contraseña fallada, redireccionar a la página principal de nuevo.
-	         mysqli_close($conn);
+
 
 	        
 	         if ($_SESSION['incorrectosSeguidos'] == '') {
@@ -47,12 +47,12 @@ include('funciones.php');
                  	        echo "<script> window.location.replace('http://localhost:81/fallo5veces.php'); </script> ";
                  	} else {
 
-                 		echo "<script> window.location.replace('http://localhost:81/'); </script> ";
+                 		echo "<script> window.location.replace('http://localhost:81/index.php'); </script> ";
                  	}
                  
                  
 	        
-	         echo "<script> window.location.replace('http://localhost:81/'); </script> ";
+
 	         
 	         
 
@@ -93,6 +93,8 @@ include('funciones.php');
         
         } 
 
+
+        
         
         if (!$cor) {
         
