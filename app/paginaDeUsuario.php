@@ -56,7 +56,8 @@ include('funciones.php');
 	         
 	         
 
-	}
+	} else {
+	
 
 	
 
@@ -150,6 +151,8 @@ include('funciones.php');
 		$_SESSION['confirmoBorrado'] = false;  
         }
         
+        
+        }
        mysqli_close($conn);
        
 
