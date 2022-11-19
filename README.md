@@ -24,7 +24,7 @@ El archivo .sql no es necesario ejecutarlo ya que el programa genera automática
 la BD al iniciarlo por primera vez. De todas formas, es posible ejecutarlo para 
 borrar todos los datos almacenados en la página web.
 Para ello, abrir http://localhost:8890/ mientras docker esté activo iniciando sesión 
-como "admin" y contraseña "test". Tras ello, pinchar en database (en la izquierda de la web)
+con las credenciales adecuadas indicadas en el archivo docker-compose. Tras ello, pinchar en database (en la izquierda de la web)
 y luego en importar (sexta opción del menú de arriba). Elegir el archivo .sql del directorio
 para importarlo y clickar en "importar" para completar el proceso
 
